@@ -1,4 +1,4 @@
-function [grad_x, r, rd, rdd, IC] = model1_load()
+function [grad_x, IC] = model1_load()
 % The Cartesian Coordinates are ignored
 % x = [q1 q2 \dot{q1} \dot{q2}]
 
@@ -11,38 +11,6 @@ IC.u = [0; 0];
 %% SYSTEM DYNAMICS
 % ********************************************************
 grad_x = @(q, u, t) model_wrapper(q, u, t);
-
-%% REFERENCE SIGNAL
-% ********************************************************
-% dt = 1e-4;
-% r = @(x, t)[ % desired trajectory
-%     heaviside(t - 3) + 1
-%     heaviside(t - 3) - 1
-%     ] ;
-% 
-% rd = @(x,t) [ 
-%     1/dt * (heaviside(t - 3) - heaviside(t - 3-dt))
-%     1/dt * (heaviside(t - 3) - heaviside(t - 3-dt))
-% ];
-% 
-% rdd = @(x, t) [
-%     0;0
-% ];
-
-r = @(x, t)[ % desired trajectory
-    +1*cos(0.5*pi*t) + 1
-    -1*cos(0.5*pi*t) - 1
-    ] ;
-
-rd = @(x,t) [ 
-    -1*sin(0.5*pi*t)*0.5*pi
-    +1*sin(0.5*pi*t)*0.5*pi
-];
-
-rdd = @(x, t) [
-    -1*cos(0.5*pi*t)*(0.5*pi)^2
-    +1*cos(0.5*pi*t)*(0.5*pi)^2
-];
 
 end
 

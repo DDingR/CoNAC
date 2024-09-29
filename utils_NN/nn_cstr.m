@@ -45,7 +45,6 @@ function [c, cd] = nn_cstr(nn, nnOpt, u_NN, nnGrad)
         +nnGrad;
         2*u(1)*-nnGrad(1,:) + 2*u(2)*-nnGrad(2,:)
         ];
-
 end
 
 

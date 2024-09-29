@@ -25,7 +25,7 @@ ylabel("State 1 $[\rm rad]$", "Interpreter","latex")
 set(gca, 'FontSize', font_size, 'FontName', 'Times New Roman')
 grid on
 % ylim([min(r1) * 0.75, max(r1) * 1.25])
-ylim([-0.5, 2.5])
+% ylim([-0.5, 2.5])
 legend([p1, p2], ["$r_1$","$x_1$"], "Interpreter","latex", "FontSize", lgd_size, "FontWeight", "bold", "Location", "northwest")
 
 nexttile
@@ -36,7 +36,7 @@ ylabel("State 2 $[\rm rad]$", "Interpreter","latex")
 set(gca, 'FontSize', font_size, 'FontName', 'Times New Roman')
 grid on
 % ylim([min(r2) * 1.25, max(r2) * 0.75])
-ylim([-2.5, .5])
+% ylim([-2.5, .5])
 legend([p1, p2], ["$r_2$","$x_2$"], "Interpreter","latex", "FontSize", lgd_size, "FontWeight", "bold", "Location", "northwest")
 
 %% FIG.2: DOT STATE vs REFERENCE
@@ -75,7 +75,6 @@ tl = tiledlayout(2, 1);
 
 nexttile
 plot(t, u1, "Color", "red", "LineWidth", line_width, "LineStyle", "-", "DisplayName", "$\tau$"); hold on
-plot(t, u1_LPF, "Color", "green", "LineWidth", line_width, "LineStyle", "-", "DisplayName", "Filtered Saturated $\tau$"); hold on
 plot(t, u1_sat, "Color", "blue", "LineWidth", line_width, "LineStyle", "-", "DisplayName", "Saturated $\tau$"); hold on
 % plot(t(actset1), u1(actset1), "Color", "red", "LineWidth", line_width, "LineStyle", "."); hold on
 % scatter(t(actset1), u1(actset1), "Color", "red", "Marker","."); hold on
@@ -92,7 +91,6 @@ lgd.FontSize = lgd_size;
 
 nexttile
 plot(t, u2, "Color", "red", "LineWidth", line_width, "LineStyle", "-"); hold on
-plot(t, u2_LPF, "Color", "green", "LineWidth", line_width, "LineStyle", "-", "DisplayName", "Filtered Saturated $\tau$"); hold on
 plot(t, u2_sat, "Color", "blue", "LineWidth", line_width, "LineStyle", "-"); hold on
 xlabel("Time $[\rm s]$", "Interpreter", "latex")
 ylabel("$\tau_2\ [\rm Nm]$", "Interpreter","latex")
@@ -171,6 +169,8 @@ nexttile
 for l_idx = 1:1:size(L, 1)
     c = rand(1,3);
 
+    % plot(t, L(l_idx, :), 'color', c, 'DisplayName',"$\lambda_"+string(l_idx)+"$" ...
+    % , "LineWidth", line_width, "LineStyle", "-"); hold on
     semilogy(t, L(l_idx, :), 'color', c, 'DisplayName',"$\lambda_"+string(l_idx)+"$" ...
     , "LineWidth", line_width, "LineStyle", "-"); hold on
 end
