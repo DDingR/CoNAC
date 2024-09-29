@@ -7,7 +7,7 @@ function [ctrlOpt, nnOpt] = opt_load(c_idx, opts, dt)
     k1_idx = find(opts.Properties.RowNames == "k1");
     k2_idx = find(opts.Properties.RowNames == "k2");
     M_idx = find(opts.Properties.RowNames == "M");
-    C_idx = find(opts.Properties.RowNames == "C");
+    C_idx = find(opts.Properties.RowNames == "C");  
     G_idx = find(opts.Properties.RowNames == "G");
     NN_size_idx = find(opts.Properties.RowNames == "NN_size");
     alpha_idx = find(opts.Properties.RowNames == "alpha");
