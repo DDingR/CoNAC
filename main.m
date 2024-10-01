@@ -40,8 +40,9 @@ num_ctrl = size(opts, 2);
 
 % for c_idx = 1:1:num_ctrl
 % for c_idx = 3
-% for c_idx = 12
-for c_idx = [3 12]
+% for c_idx = 5
+for c_idx = [1 2 3 4]
+% for c_idx = [5 6 7 8]
 % for c_idx = [1 2 3 12]
     seed = 1; rng(seed);
     % ctrl_name = opts.Properties.VariableNames{c_idx};

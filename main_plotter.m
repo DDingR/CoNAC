@@ -10,12 +10,12 @@ POSITION_FLAG = 1; % it will plot fiugures in the same position
 addpath("InpSatFunc/")
 
 %% DATA LOAD
-group1 = 1;
-group2 = 2;
-group3 = 3:7;
-group4 = 8:12;
+% group1 = 1;
+% group2 = 2;
+% group3 = 3:7;
+% group4 = 8:12;
 
-for c_idx = 1:1:12
+for c_idx = 1:1:4
     fprintf("[INFO] Loading CTRL%d\n", c_idx);
     ctrl_results.("ctrl"+string(c_idx)) = load( ...
         "sim_result/CTRL"+string(c_idx)+"/CTRL" + string(c_idx) + "_result.mat" ...
@@ -23,7 +23,7 @@ for c_idx = 1:1:12
 end
 c_list = get(gca,'colororder');
 
-group = [1 2 3 12];
+group = [1 2 3 4];
 quantitive_report(ctrl_results, group);
 
 if ~FIGURE_PLOT
@@ -393,7 +393,7 @@ function [] = plot_weight_norm(result, POSITION_FLAG, CTRL_NUM)
     % ylim([0, max(th, [], 'all')+20])
 
     if CTRL_NUM == 4
-    rectangle('Position', [6, 39, 2, 2], 'EdgeColor', [0.8500    0.3250    0.0980], 'LineWidth', 2, 'LineStyle', '-.'); hold on
+    rectangle('Position', [6, 39, 7-6, 2], 'EdgeColor', [0.8500    0.3250    0.0980], 'LineWidth', 2, 'LineStyle', '-.'); hold on
 
         axes("Position",[.65 .55 0.2,0.15])
         foc_ti = 6;
@@ -615,7 +615,7 @@ function [] = plot_total_control(ctrl_results, group)
 
     nexttile(1)
     % ctrl_list = [ctrl1, ctrl2, ctrl3, ctrl4];
-    ctrl_name = ["CM1" "CM2" "CM3" "CoNAC"];
+    ctrl_name = ["BSC" "DNN-BSC" "DNN-BSC-A" "CoNAC"];
     
     for c_idx = 1:1:length(group)
         ctrl_idx = group(c_idx);
@@ -709,8 +709,8 @@ function [] = plot_ball(ctrl_results, group, c)
     % plot([u_max u_max], [-100 100], "color", 'black', "LineWidth", line_width, "LineStyle", "-.",'HandleVisibility','off'); hold on
     rectangle('Position', [-u_max -u_max 2*u_max 2*u_max], "EdgeColor", c(1,:), "LineWidth", line_width, "LineStyle", "-.",'HandleVisibility','off')
 
-    group = [3 12];
-    ctrl_name = [ "CM3", "CoNAC"];
+    group = [3 4];
+    ctrl_name = [ "DNN-BSC-A", "CoNAC"];
     % ctrl_name = ["CM1", "CM2", "CM3", "CoNAC"];
 
     for c_idx = 1:1:length(group)

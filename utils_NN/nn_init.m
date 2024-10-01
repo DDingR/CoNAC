@@ -10,7 +10,7 @@ function nn = nn_init(nnOpt)
     nn.tape = zeros(nnOpt.t_size, 1);
     
     %% SENSITIVY INITIALIZATION (PROPOSED)
-    if strcmp(nnOpt.alg, "Proposed")
+    if strcmp(nnOpt.alg, "Proposed") || strcmp(nnOpt.alg, "L2")
         nn.eta = zeros(nnOpt.NN_size(end)*2, nnOpt.v_size);
     end
 

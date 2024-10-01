@@ -20,6 +20,7 @@ function [ctrlOpt, nnOpt] = opt_load(c_idx, opts, dt)
     u_ball_idx = find(opts.Properties.RowNames == "u_ball");
     Azeta_idx = find(opts.Properties.RowNames == "Azeta");
     Bzeta_idx = find(opts.Properties.RowNames == "Bzeta");
+    L2_idx = find(opts.Properties.RowNames == "L2");
  
     %% DEFAULT PARAMETERS
     nnOpt.dt = dt; % sampling time
@@ -140,6 +141,8 @@ function [ctrlOpt, nnOpt] = opt_load(c_idx, opts, dt)
 
         c_num = length(nnOpt.beta);
         nnOpt.Lambda = zeros(c_num,1);
+        
+        nnOpt.L2 = str2num(opts{L2_idx, c_idx});
 
         nnOpt = numbersCalc(nnOpt);
 

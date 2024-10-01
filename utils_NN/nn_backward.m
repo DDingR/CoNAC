@@ -73,11 +73,7 @@ function [nn, nnOpt, dot_L, info] = nn_backward(nn, nnOpt, ctrlOpt, e, u_NN)
 
         % find gradient; theta, lambda
         V_grad = - nnOpt.alpha * (nn.eta'*nnOpt.W*e + cd' * Lambda);
-        % V_grad = - nnOpt.alpha * ((A\B*nnGrad)'*e + cd' * Lambda);
-        % V_grad = - nnOpt.alpha * (-nnGrad' *e(3:4)+ cd' * Lambda);
-        % V_grad = - nnOpt.alpha * (-nnGrad' *nnOpt.W(3:4,3:4)*e(3:4)+ cd' * Lambda);
         L_grad = diag(nnOpt.beta) * c;
-        % L_grad = -1e2 * Lambda.*~ActSet + L_grad;
  
         V_grad = V_grad * nnOpt.dt;
         L_grad = L_grad * nnOpt.dt;
@@ -85,6 +81,24 @@ function [nn, nnOpt, dot_L, info] = nn_backward(nn, nnOpt, ctrlOpt, e, u_NN)
         % update mupliers
         nnOpt.Lambda = Lambda + L_grad;
         nnOpt.Lambda = max(nnOpt.Lambda, 0);
+
+    elseif strcmp(nnOpt.alg, "L2")
+        % dynamical gradient
+        dhdu_11 = dfdx_11(u_NN(1), u_NN(2));
+        dhdu_12 = dfdx_12(u_NN(1), u_NN(2));
+        dhdu_21 = dfdx_21(u_NN(1), u_NN(2));
+        dhdu_22 = dfdx_22(u_NN(1), u_NN(2));
+        dhdu = [dhdu_11 dhdu_12; dhdu_21 dhdu_22];
+
+        nn.eta = nn.eta + (A*nn.eta+B*dhdu*-nnGrad) * nnOpt.dt;
+
+
+
+        % find gradient; theta, lambda
+        V_grad = - nnOpt.alpha * nn.eta'*nnOpt.W*e;
+        V_grad = V_grad - nnOpt.L2 * nn.V;
+ 
+        V_grad = V_grad * nnOpt.dt;
 
     elseif strcmp(nnOpt.alg, "ALM")
         error("not ready")
