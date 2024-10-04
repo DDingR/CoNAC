@@ -57,36 +57,26 @@ ctrl3_rep = ctrl_results.("ctrl"+string(group(3)));
 ctrl4_rep = ctrl_results.("ctrl"+string(group(4)));
 
 %% FIGURE 1~4: STATE vs REFERENCE
-figure(1); clf; tl = tiledlayout(2, 1);
+figure(1); clf; 
 plot_ref(ctrl1_rep, POSITION_FLAG); 
-plot_state(ctrl1_rep, POSITION_FLAG, 'blue'); 
-
-figure(2); clf; tl = tiledlayout(2, 1);
-plot_ref(ctrl1_rep, POSITION_FLAG); 
-plot_state(ctrl2_rep, POSITION_FLAG, 'blue'); 
-
-figure(3); clf; tl = tiledlayout(2, 1);
-plot_ref(ctrl1_rep, POSITION_FLAG); 
-plot_state(ctrl3_rep, POSITION_FLAG, 'blue'); 
-
-figure(4); clf; tl = tiledlayout(2, 1);
-plot_ref(ctrl1_rep, POSITION_FLAG); 
-plot_state(ctrl4_rep, POSITION_FLAG, 'blue'); 
+figure(2); clf;
+plot_ref(ctrl2_rep, POSITION_FLAG); 
+figure(3); clf; 
+plot_ref(ctrl3_rep, POSITION_FLAG); 
+figure(4); clf; 
+plot_ref(ctrl4_rep, POSITION_FLAG); 
 
 %% FIGURE 5~8: CONTROL INPUT
-figure(5); clf; tl = tiledlayout(2, 1);
+figure(5); clf;
 plot_control(ctrl1_rep, POSITION_FLAG, 1);
-
-figure(6); clf; tl = tiledlayout(2, 1);
+figure(6); clf;
 plot_control(ctrl2_rep, POSITION_FLAG, 2);
-
-figure(7); clf; tl = tiledlayout(2, 1);
+figure(7); clf; 
 plot_control(ctrl3_rep, POSITION_FLAG, 3);
-
-figure(8); clf; tl = tiledlayout(2, 1);
+figure(8); clf; 
 plot_control(ctrl4_rep, POSITION_FLAG, 4);
 
-%% FIGURE 3: WEIGHT BALL
+%% FIGURE 9~11: WEIGHT BALL
 figure(9); clf
 plot_weight_norm(ctrl2_rep, POSITION_FLAG, 2);
 
@@ -96,15 +86,15 @@ plot_weight_norm(ctrl3_rep, POSITION_FLAG, 3);
 figure(11); clf
 plot_weight_norm(ctrl4_rep, POSITION_FLAG, 4);
 
-%% FIGURE 4: MULTIPLIERS
+%% FIGURE 12: MULTIPLIERS
 figure(12); clf
 plot_multipliers(ctrl4_rep, POSITION_FLAG);
 
-%% FIGURE 5: SATURATION FUNCTION
+%% FIGURE 13: SATURATION FUNCTION
 figure(13); clf
 plot_saturation(POSITION_FLAG);
 
-%% FIGURE 6: TOTAL CONTROLS
+%% FIGURE 14: TOTAL CONTROLS
 figure(14); clf
 tl = tiledlayout(2,1);
 plot_total_control(ctrl_results, group);
@@ -118,7 +108,6 @@ plot_err(ctrl4_rep, group, c_list(4,:));
 
 figure(16);clf
 plot_ball(ctrl_results, group, c_list);
-
 
 %% SAVE FIGURES
 if SAVE_FLAG
@@ -136,21 +125,24 @@ beep()
 %% LOCAL FUNCTIONS ************************************
 %           *** state vs ref ***
 function [] = plot_ref(result, POSITION_FLAG)
-    % tl = tiledlayout(2, 1);
+    tl = tiledlayout(2, 1);
 
     t = result.t;
 
     r1 = result.r_hist(1,:);
     r2 = result.r_hist(2,:);
+    x1 = result.x_hist(1,:);
+    x2 = result.x_hist(2,:);
 
     font_size = 16;
     line_width = 2;
     lgd_size = 12;
 
     nexttile(1)
-    plot(t, r1, "Color", "green", "LineWidth", line_width, "LineStyle", "-", "DisplayName", "$r_1$"); hold on
+    plot(t, r1, "Color", "green", "LineWidth", line_width, "LineStyle", "-", "DisplayName", "${q_d}$"); hold on
+    plot(t, x1, "Color", "blue", "LineWidth", line_width, "LineStyle", "-.", "DisplayName", "$q$"); hold on
     xlabel("$t\ (\rm s)$", "Interpreter", "latex")
-    ylabel("$q_{(1)}\ (\rm rad)$", "Interpreter","latex")
+    ylabel("$q_{1}\ (\rm rad)$", "Interpreter","latex")
     set(gca, 'FontSize', font_size, 'FontName', 'Times New Roman')
     grid on
     % ylim([min(r1) * 0.75, max(r1) * 1.25])
@@ -163,23 +155,29 @@ function [] = plot_ref(result, POSITION_FLAG)
     lgd.FontSize = lgd_size; 
 
     nexttile(2)
-    plot(t, r2, "Color", "green", "LineWidth", line_width, "LineStyle", "-"); hold on
+    plot(t, r2, "Color", "green", "LineWidth", line_width, "LineStyle", "-", "DisplayName", "${q_d}_2$"); hold on
+    plot(t, x2, "Color", "blue", "LineWidth", line_width, "LineStyle", "-.", "DisplayName", "${q}_2$"); hold on
     xlabel("$t\ (\rm s)$", "Interpreter", "latex")
-    ylabel("$q_{(2)}\ (\rm rad)$", "Interpreter","latex")
+    ylabel("$q_{2}\ (\rm rad)$", "Interpreter","latex")
     set(gca, 'FontSize', font_size, 'FontName', 'Times New Roman')
     grid on
     % ylim([min(r2) * 1.25, max(r2) * 0.75])
     ylim([-2.5, .5])
     % ylim([-2.5, 2.5])
+    % lgd = legend;
+    % lgd.Orientation = 'Horizontal';
+    % lgd.Location = 'northeast';
+    % lgd.Interpreter = 'latex';
+    % lgd.FontSize = lgd_size; 
 
     if POSITION_FLAG
-        set(gcf, 'Position',  [100, 100, 560, 250])
+        set(gcf, 'Position',  [100, 100, 560, 280])
     end
 end
 
 %           *** state vs ref ***
 function [] = plot_err(result, POSITION_FLAG, c)
-    % tl = tiledlayout(2, 1);
+    tl = tiledlayout(2, 1);
 
     t = result.t;
 
@@ -221,50 +219,10 @@ function [] = plot_err(result, POSITION_FLAG, c)
     %     set(gcf, 'Position',  [100, 100, 560, 250])
     % end
 end
-%           *** state vs ref ***
-function [] = plot_state(result, POSITION_FLAG, c)
-    % tl = tiledlayout(2, 1);
-
-    t = result.t;
-
-    x1 = result.x_hist(1,:);
-    x2 = result.x_hist(2,:);
-
-    font_size = 16;
-    line_width = 2;
-    lgd_size = 12;
-
-    nexttile(1)
-    plot(t, x1, "Color", c, "LineWidth", line_width, "LineStyle", "-.", "DisplayName", "$q$"); hold on
-    xlabel("$t\ (\rm s)$", "Interpreter", "latex")
-    ylabel("$q_{(1)}\ (\rm rad)$", "Interpreter","latex")
-    set(gca, 'FontSize', font_size, 'FontName', 'Times New Roman')
-    grid on
-    ylim([-0.5, 2.5])
-    lgd = legend;
-    lgd.Orientation = 'Horizontal';
-    lgd.Location = 'northoutside';
-    lgd.Interpreter = 'latex';
-    lgd.FontSize = lgd_size; 
-
-    nexttile(2)
-    plot(t, x2, "Color", c, "LineWidth", line_width, "LineStyle", "-."); hold on
-    xlabel("$t\ (\rm s)$", "Interpreter", "latex")
-    ylabel("$q_{(2)}\ (\rm rad)$", "Interpreter","latex")
-    set(gca, 'FontSize', font_size, 'FontName', 'Times New Roman')
-    grid on
-    % ylim([min(r2) * 1.25, max(r2) * 0.75])
-    ylim([-2.5, .5])
-
-    if POSITION_FLAG
-        set(gcf, 'Position',  [100, 100, 560, 250])
-    end
-end
 
 %           *** control input ***
 function [] = plot_control(result, POSITION_FLAG, CTRL_NUM)
-    % plot(randn(100,1));return;
-    % tl = tiledlayout(2, 1);
+    tl = tiledlayout(2, 1);
 
     cstr = result.nnOpt.cstr;
     t = result.t;
@@ -280,11 +238,11 @@ function [] = plot_control(result, POSITION_FLAG, CTRL_NUM)
     
     nexttile
     plot(t, u1, "Color", "red", "LineWidth", line_width, "LineStyle", "-", "DisplayName", "$\tau$"); hold on
-    plot(t, u1_sat, "Color", "blue", "LineWidth", line_width, "LineStyle", "-", "DisplayName", "Saturated $\tau$"); hold on
+    plot(t, u1_sat, "Color", "blue", "LineWidth", line_width, "LineStyle", "-", "DisplayName", " $h(\tau)$"); hold on
     % plot(t(actset1), u1(actset1), "Color", "red", "LineWidth", line_width, "LineStyle", "."); hold on
     % scatter(t(actset1), u1(actset1), "Color", "red", "Marker","."); hold on
     xlabel("$t\ (\rm s)$", "Interpreter", "latex")
-    ylabel("$\tau_{(1)}\ (\rm Nm)$", "Interpreter","latex")
+    ylabel("$\tau_{1}\ (\rm Nm)$", "Interpreter","latex")
     set(gca, 'FontSize', font_size, 'FontName', 'Times New Roman')
     grid on
     ylim([-50 * 1.25, 60])
@@ -300,7 +258,7 @@ function [] = plot_control(result, POSITION_FLAG, CTRL_NUM)
     plot(t, u2, "Color", "red", "LineWidth", line_width, "LineStyle", "-"); hold on
     plot(t, u2_sat, "Color", "blue", "LineWidth", line_width, "LineStyle", "-"); hold on
     xlabel("$t\ (\rm s)$", "Interpreter", "latex")
-    ylabel("$\tau_{(2)}\ (\rm Nm)$", "Interpreter","latex")
+    ylabel("$\tau_{2}\ (\rm Nm)$", "Interpreter","latex")
     set(gca, 'FontSize', font_size, 'FontName', 'Times New Roman')
     grid on
     ylim([-4 6])
@@ -311,14 +269,15 @@ function [] = plot_control(result, POSITION_FLAG, CTRL_NUM)
     if CTRL_NUM ~= 1
     nexttile(1)
     rectangle('Position', [2, 0, 1, 200], 'EdgeColor', [0.8500    0.3250    0.0980], 'LineWidth', 2, 'LineStyle', '-.'); hold on
-
+    rectangle('Position', [6.5, 0, 1, 70], 'EdgeColor', [0.8500    0.3250    0.0980], 'LineWidth', 2, 'LineStyle', '-.'); hold on
+    
         axes('Position',[.78 .78 .2 .2])
         ang = 0:0.01:2*pi;
         plot(cstr.u_ball*cos(ang), cstr.u_ball*sin(ang), "color", 'black', "LineWidth", line_width, "LineStyle", "-."); hold on
         plot(u1, u2, "color", 'red', "LineWidth", 2, "LineStyle", "-"); hold on
         plot(u1_sat, u2_sat, "color", 'blue', "LineWidth", 2, "LineStyle", "-"); hold on
-        xlabel("$\tau_{(1)}$", "Interpreter", "latex")
-        ylabel("$\tau_{(2)}$", "Interpreter", "latex")
+        xlabel("$\tau_{1}$", "Interpreter", "latex")
+        ylabel("$\tau_{2}$", "Interpreter", "latex")
         set(gca, 'FontSize', 12, 'FontName', 'Times New Roman')
         grid on 
         xlim([-cstr.u_ball*1.5, cstr.u_ball*1.5])
@@ -327,10 +286,10 @@ function [] = plot_control(result, POSITION_FLAG, CTRL_NUM)
         
         % if max(u1) > 51
             
-            axes('Position',[.48,.65,.13,.11])
-%             axes('Position',[.25 .75 .2 .2])
+            % axes('Position',[.44,.64,.13,.11])
+            axes('Position',[.34,.64,.13,.11])
             plot(t, u1, "Color", "red", "LineWidth", line_width, "LineStyle", "-", "DisplayName", "$\tau$"); hold on
-            plot(t, u1_sat, "Color", "blue", "LineWidth", line_width, "LineStyle", "-", "DisplayName", "Saturated $\tau$"); hold on
+            plot(t, u1_sat, "Color", "blue", "LineWidth", line_width, "LineStyle", "-", "DisplayName", "$h(\tau)$"); hold on
             % plot(t(actset1), u1(actset1), "Color", "red", "LineWidth", line_width, "LineStyle", "."); hold on
             % scatter(t(actset1), u1(actset1), "Color", "red", "Marker","."); hold on
             set(gca, 'FontSize', 12, 'FontName', 'Times New Roman')
@@ -338,11 +297,23 @@ function [] = plot_control(result, POSITION_FLAG, CTRL_NUM)
             ylim([00, 200])
             xlim([2 3])
             % ylim([min(u1_sat) * 1.25, max(u1_sat) * 1.25])
+
+            % axes('Position',[.75,.64,.13,.11])
+            axes('Position',[0.68,0.64,0.13,0.11])
+            plot(t, u1, "Color", "red", "LineWidth", line_width, "LineStyle", "-", "DisplayName", "$\tau$"); hold on
+            plot(t, u1_sat, "Color", "blue", "LineWidth", line_width, "LineStyle", "-", "DisplayName", "$h(\tau)$"); hold on
+            % plot(t(actset1), u1(actset1), "Color", "red", "LineWidth", line_width, "LineStyle", "."); hold on
+            % scatter(t(actset1), u1(actset1), "Color", "red", "Marker","."); hold on
+            set(gca, 'FontSize', 12, 'FontName', 'Times New Roman')
+            grid on
+            ylim([00, 70])
+            xlim([6.5 7.5])
+            % ylim([min(u1_sat) * 1.25, max(u1_sat) * 1.25])
         % end
     end
 
     if POSITION_FLAG
-        set(gcf, 'Position',  [100, 100, 560, 250])
+        set(gcf, 'Position',  [100, 100, 560, 280])
     end
 end
 
@@ -388,12 +359,34 @@ function [] = plot_weight_norm(result, POSITION_FLAG, CTRL_NUM)
     ylabel("Weights Norm $ $", "Interpreter","latex")
     set(gca, 'FontSize', font_size, 'FontName', 'Times New Roman')
     grid on 
+
     ylim([0, max(cstr.V_max) * 1.25])
+
     % ylim([0, max(th, [], 'all') * 1.25])
     % ylim([0, max(th, [], 'all')+20])
 
     if CTRL_NUM == 4
-    rectangle('Position', [6, 39, 7-6, 2], 'EdgeColor', [0.8500    0.3250    0.0980], 'LineWidth', 2, 'LineStyle', '-.'); hold on
+    rectangle('Position', [6, 38, 7-6, 3], 'EdgeColor', [0.8500    0.3250    0.0980], 'LineWidth', 2, 'LineStyle', '-.'); hold on
+    rectangle('Position', [2, 38, 3-2, 3], 'EdgeColor', [0.8500    0.3250    0.0980], 'LineWidth', 2, 'LineStyle', '-.'); hold on
+    
+    % (a) text 배치
+    x_limits = xlim;
+    y_limits = ylim;
+    text_x_ratio = 0.23;
+    text_y_ratio = 0.92;
+    text_x = x_limits(1) + text_x_ratio * (x_limits(2) - x_limits(1));
+    text_y = y_limits(1) + text_y_ratio * (y_limits(2) - y_limits(1));  
+    text(text_x, text_y, {'(a)'}, 'FontName', 'Times New Roman', 'FontSize', font_size, 'FontWeight', 'bold');
+    
+    % (b) text 배치
+    x_limits = xlim;
+    y_limits = ylim;
+    text_x_ratio = 0.63;
+    text_y_ratio = 0.92;
+    text_x = x_limits(1) + text_x_ratio * (x_limits(2) - x_limits(1));
+    text_y = y_limits(1) + text_y_ratio * (y_limits(2) - y_limits(1));  
+    text(text_x, text_y, {'(b)'}, 'FontName', 'Times New Roman', 'FontSize', font_size, 'FontWeight', 'bold');
+
 
         axes("Position",[.65 .55 0.2,0.15])
         foc_ti = 6;
@@ -410,9 +403,29 @@ function [] = plot_weight_norm(result, POSITION_FLAG, CTRL_NUM)
         set(gca, 'FontSize', 12, 'FontName', 'Times New Roman')
         grid on 
         xlim([foc_ti foc_tf])
-        ylim([39 41])
+        ylim([38 41])
         % pbaspect([1 1 1])
         grid on
+
+        axes("Position",[.35 .55 0.2,0.15])
+        foc_ti = 2;
+        foc_tf = 3;
+        dt = 1e-4;
+        foc_t = foc_ti/dt:foc_tf/dt;
+        foc_t = uint32(foc_t);    
+
+        plot(t(foc_t), ones(size(foc_t)) * cstr.V_max(3), "Color", "blue", "LineWidth", line_width, "LineStyle", "-."); hold on
+        plot(t(foc_t), th(3, foc_t), "Color", "blue", "LineWidth", line_width, "LineStyle", "-"); hold on
+
+        % xlabel("$t\ [\rm s]$", "Interpreter", "latex")
+        % ylabel("$\Vert\tau\Vert$", "Interpreter", "latex")
+        set(gca, 'FontSize', 12, 'FontName', 'Times New Roman')
+        grid on 
+        xlim([foc_ti foc_tf])
+        ylim([38 41])
+        % pbaspect([1 1 1])
+        grid on
+
     end
 
     % if CTRL_NUM == 2
@@ -456,7 +469,7 @@ function [] = plot_weight_norm(result, POSITION_FLAG, CTRL_NUM)
     % end
 
     if POSITION_FLAG
-        set(gcf, 'Position',  [100, 100, 560, 250])
+        set(gcf, 'Position',  [100, 100, 560, 280])
     end    
 end
 
@@ -487,38 +500,38 @@ function [] = plot_multipliers(ctrl, POSITION_FLAG)
    
     lgd = legend;
     lgd.Orientation = 'horizontal';
-    lgd.Location = 'northoutside';
+    lgd.Location = 'southeast';
     lgd.Interpreter = 'latex';
     lgd.FontSize = lgd_size;
     set(gca, 'FontSize', font_size, 'FontName', 'Times New Roman')
 
-        axes('Position',[0.78,0.55,0.1,0.2])
-
-        u1 = ctrl.u_hist(1,:);
-        u2 = ctrl.u_hist(2,:);
-        uball = ctrl.nnOpt.cstr.u_ball;
-
-        % foc_ti = 1e-4;
-        foc_ti = 2.62;
-        foc_tf = 2.625;
-        dt = 1e-4;
-        foc_t = foc_ti/dt:foc_tf/dt;
-        foc_t = uint32(foc_t);        
-
-        plot([foc_ti foc_tf], [1 1]*uball, "Color", "black", "LineWidth", line_width, "LineStyle", "-."); hold on
-        plot(t(foc_t), sqrt(u1(foc_t).^2+u2(foc_t).^2), "Color", "red", "LineWidth", line_width, "LineStyle", "-"); hold on
-        xlabel("$t\ (\rm s)$", "Interpreter", "latex")
-        ylabel("$\Vert\tau\Vert$", "Interpreter", "latex")
-        set(gca, 'FontSize', 12, 'FontName', 'Times New Roman')
-        grid on 
-        xlim([foc_ti foc_tf])
-        ylim([49.7 50.3])
-        % pbaspect([1 1 1])
-        grid on
+        % axes('Position',[0.78,0.55,0.1,0.2])
+        % 
+        % u1 = ctrl.u_hist(1,:);
+        % u2 = ctrl.u_hist(2,:);
+        % uball = ctrl.nnOpt.cstr.u_ball;
+        % 
+        % % foc_ti = 1e-4;
+        % foc_ti = 2.62;
+        % foc_tf = 2.625;
+        % dt = 1e-4;
+        % foc_t = foc_ti/dt:foc_tf/dt;
+        % foc_t = uint32(foc_t);        
+        % 
+        % plot([foc_ti foc_tf], [1 1]*uball, "Color", "black", "LineWidth", line_width, "LineStyle", "-."); hold on
+        % plot(t(foc_t), sqrt(u1(foc_t).^2+u2(foc_t).^2), "Color", "red", "LineWidth", line_width, "LineStyle", "-"); hold on
+        % xlabel("$t\ (\rm s)$", "Interpreter", "latex")
+        % ylabel("$\Vert\tau\Vert$", "Interpreter", "latex")
+        % set(gca, 'FontSize', 12, 'FontName', 'Times New Roman')
+        % grid on 
+        % xlim([foc_ti foc_tf])
+        % ylim([49.7 50.3])
+        % % pbaspect([1 1 1])
+        % grid on
         
 
     if POSITION_FLAG
-        set(gcf, 'Position',  [100, 100, 560, 250])
+        set(gcf, 'Position',  [100, 100, 560, 280])
     end
 end
 
@@ -548,7 +561,7 @@ function [] = plot_saturation(POSITION_FLAG)
     
     X = [0.3 0.25];
     Y = [0.6   0.75];
-    ano = annotation('textarrow',X,Y, 'String', '$p \ \uparrow$', 'Interpreter', 'latex');
+    ano = annotation('textarrow', X,Y, 'String', '$p \ \uparrow$', 'Interpreter', 'latex');
     ano.FontSize = font_size;
     ano.FontName = 'Times New Roman';
     ano.LineWidth = line_width;
@@ -595,7 +608,7 @@ function [] = plot_saturation(POSITION_FLAG)
     colorbar
     
     if POSITION_FLAG
-        set(gcf, 'Position',  [100, 100, 560, 250])
+        set(gcf, 'Position',  [100, 100, 560, 280])
     end
 
 end
@@ -665,6 +678,7 @@ function [] = plot_total_control(ctrl_results, group)
         foc_t = foc_ti/dt:foc_tf/dt;
         foc_t = uint32(foc_t);   
 
+
         for c_idx = 1:1:length(group)
             ctrl_idx = group(c_idx);
     
@@ -683,6 +697,7 @@ function [] = plot_total_control(ctrl_results, group)
         % ylim([49.5 52])
         ylim([40 55])
         % pbaspect([1 1 1])
+
     
     % if POSITION_FLAG
     %     set(gcf, 'Position',  [100, 100, 560, 250])
@@ -720,11 +735,11 @@ function [] = plot_ball(ctrl_results, group, c)
         u1 = ctrl.u_hist(1,:);
         u2 = ctrl.u_hist(2,:);
 
-        plot(u1(foc_t), u2(foc_t), "color", c(c_idx,:), "LineWidth", line_width, "LineStyle", "-", "DisplayName",ctrl_name(c_idx)); hold on
+        plot(u1(foc_t), u2(foc_t), "color", c(c_idx,:), "LineWidth", line_width, "LineStyle", "-", "DisplayName", ctrl_name(c_idx)); hold on
     % plot(u1_sat, u2_sat, "color", 'blue', "LineWidth", 2, "LineStyle", "-"); hold on
     end
-    xlabel("$\tau_{(1)}$", "Interpreter", "latex")
-    ylabel("$\tau_{(2)}$", "Interpreter", "latex")
+    xlabel("$\tau_{1}\ (\rm Nm)$", "Interpreter", "latex")
+    ylabel("$\tau_{2}\ (\rm Nm)$", "Interpreter", "latex")
     set(gca, 'FontSize', font_size, 'FontName', 'Times New Roman')
     grid on 
     % xlim([-cstr.u_ball*1.5, cstr.u_ball*1.5])
@@ -732,6 +747,22 @@ function [] = plot_ball(ctrl_results, group, c)
     xlim([40 55])
     ylim([-4 4])
     % pbaspect([1 1 1])
+
+    % DNN-BSC-A constraint
+    x_limits = xlim;
+    y_limits = ylim;
+    text_x_ratio = 0.2;
+    text_y_ratio = 0.15;
+    text_x = x_limits(1) + text_x_ratio * (x_limits(2) - x_limits(1));
+    text_y = y_limits(1) + text_y_ratio * (y_limits(2) - y_limits(1));  
+    text(text_x, text_y, {'\leftarrow Input Bound', '     Constraint of','     DNN-BSC-A'}, 'FontName', 'Times New Roman', 'FontSize', font_size);
+    
+    % CoNAC constraint
+    text_x_ratio = 0.68;
+    text_y_ratio = 0.15;
+    text_x = x_limits(1) + text_x_ratio * (x_limits(2) - x_limits(1));
+    text_y = y_limits(1) + text_y_ratio * (y_limits(2) - y_limits(1));  
+    text(text_x, text_y, {'\leftarrow Input Norm', '    Constraint of', '       CoNAC'}, 'FontName', 'Times New Roman', 'FontSize', font_size);
 
     lgd = legend;
     lgd.Orientation = 'Horizontal';
@@ -762,8 +793,8 @@ function [] = plot_ball(ctrl_results, group, c)
             plot(u1(foc_t), u2(foc_t), "color", c(c_idx,:), "LineWidth", line_width); hold on
         end
 
-        xlabel("$t\ (\rm s)$", "Interpreter", "latex")
-        ylabel("$\tau_{(1)}\ (\rm Nm)$", "Interpreter","latex")
+        xlabel("$\tau_{1}$", "Interpreter", "latex")
+        ylabel("$\tau_{2}$", "Interpreter","latex")
         set(gca, 'FontSize', 12, 'FontName', 'Times New Roman')
         grid on 
         xlim([-u_ball*1.1, u_ball*1.1])
@@ -774,7 +805,6 @@ function [] = plot_ball(ctrl_results, group, c)
         pbaspect([1 1 1])
 
 end
-
 
 %               *** Quantitive Report ***       
 function [] = quantitive_report(ctrl_results, group)

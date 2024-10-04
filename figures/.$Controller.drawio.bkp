@@ -1,10 +1,10 @@
-<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.8 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.8">
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
   <diagram name="Page-1" id="H3oKLqlX0tTp-uY2Kpaz">
-    <mxGraphModel dx="683" dy="407" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="1" shadow="0">
+    <mxGraphModel dx="667" dy="397" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="1" shadow="0">
       <root>
         <mxCell id="0" />
-        <mxCell id="3jEwKh9Pe0ptTPQIIk5x-5" value="Area" style="" parent="0" />
-        <mxCell id="3jEwKh9Pe0ptTPQIIk5x-69" value="" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;" parent="3jEwKh9Pe0ptTPQIIk5x-5" vertex="1">
+        <mxCell id="3jEwKh9Pe0ptTPQIIk5x-5" value="Area" style="locked=1;" parent="0" />
+        <mxCell id="3jEwKh9Pe0ptTPQIIk5x-69" value="" style="rounded=1;whiteSpace=wrap;html=1;dashed=1;fillColor=none;" parent="3jEwKh9Pe0ptTPQIIk5x-5" vertex="1">
           <mxGeometry x="140" y="310" width="384" height="150" as="geometry" />
         </mxCell>
         <mxCell id="3jEwKh9Pe0ptTPQIIk5x-4" value="Lines" style="locked=1;" parent="0" />
@@ -128,20 +128,20 @@
         <mxCell id="3jEwKh9Pe0ptTPQIIk5x-75" value="" style="triangle;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="497" y="347" width="23" height="25" as="geometry" />
         </mxCell>
-        <mxCell id="3jEwKh9Pe0ptTPQIIk5x-3" value="Math" style="locked=1;" parent="0" />
-        <mxCell id="3jEwKh9Pe0ptTPQIIk5x-26" value="$$r_1$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="3jEwKh9Pe0ptTPQIIk5x-3" vertex="1">
-          <mxGeometry x="91" y="340" width="70" height="30" as="geometry" />
+        <mxCell id="3jEwKh9Pe0ptTPQIIk5x-3" value="Math" style="" parent="0" />
+        <mxCell id="3jEwKh9Pe0ptTPQIIk5x-26" value="$$r^*=q_d$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="3jEwKh9Pe0ptTPQIIk5x-3" vertex="1">
+          <mxGeometry x="68" y="340" width="90" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="3jEwKh9Pe0ptTPQIIk5x-29" value="$$\dot r_1$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="3jEwKh9Pe0ptTPQIIk5x-3" vertex="1">
-          <mxGeometry x="81" y="361" width="90" height="30" as="geometry" />
+        <mxCell id="3jEwKh9Pe0ptTPQIIk5x-29" value="$$\dot r^*$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="3jEwKh9Pe0ptTPQIIk5x-3" vertex="1">
+          <mxGeometry x="85" y="361" width="90" height="30" as="geometry" />
         </mxCell>
         <mxCell id="3jEwKh9Pe0ptTPQIIk5x-30" value="$$\hat\theta$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="3jEwKh9Pe0ptTPQIIk5x-3" vertex="1">
-          <mxGeometry x="340" y="354" width="100" height="30" as="geometry" />
+          <mxGeometry x="341" y="354" width="100" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="3jEwKh9Pe0ptTPQIIk5x-41" value="$$e_1$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="3jEwKh9Pe0ptTPQIIk5x-3" vertex="1">
-          <mxGeometry x="166" y="407" width="70" height="30" as="geometry" />
+        <mxCell id="3jEwKh9Pe0ptTPQIIk5x-41" value="$$\tilde r$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="3jEwKh9Pe0ptTPQIIk5x-3" vertex="1">
+          <mxGeometry x="161" y="405" width="80" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="3jEwKh9Pe0ptTPQIIk5x-44" value="$$r_2$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="3jEwKh9Pe0ptTPQIIk5x-3" vertex="1">
+        <mxCell id="3jEwKh9Pe0ptTPQIIk5x-44" value="$$z^*$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="3jEwKh9Pe0ptTPQIIk5x-3" vertex="1">
           <mxGeometry x="220" y="348" width="70" height="30" as="geometry" />
         </mxCell>
         <mxCell id="3jEwKh9Pe0ptTPQIIk5x-50" value="$$q,\dot q$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="3jEwKh9Pe0ptTPQIIk5x-3" vertex="1">
@@ -153,8 +153,8 @@
         <mxCell id="3jEwKh9Pe0ptTPQIIk5x-77" value="$$-1$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=8;" parent="3jEwKh9Pe0ptTPQIIk5x-3" vertex="1">
           <mxGeometry x="480" y="350" width="50" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="3jEwKh9Pe0ptTPQIIk5x-78" value="$$q_n$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="3jEwKh9Pe0ptTPQIIk5x-3" vertex="1">
-          <mxGeometry x="354" y="312" width="70" height="30" as="geometry" />
+        <mxCell id="3jEwKh9Pe0ptTPQIIk5x-78" value="$$q_{NN}$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="3jEwKh9Pe0ptTPQIIk5x-3" vertex="1">
+          <mxGeometry x="344" y="312" width="90" height="30" as="geometry" />
         </mxCell>
         <mxCell id="Q-mhqSvsPF1NudLkKP7M-2" value="$$q,\dot q$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="3jEwKh9Pe0ptTPQIIk5x-3" vertex="1">
           <mxGeometry x="240" y="433" width="90" height="30" as="geometry" />
@@ -162,7 +162,10 @@
         <mxCell id="YXTl3u4vy5jYAbG0ojDT-3" value="$$\hat\Phi$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;" parent="3jEwKh9Pe0ptTPQIIk5x-3" vertex="1">
           <mxGeometry x="432" y="336" width="90" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="3jEwKh9Pe0ptTPQIIk5x-6" value="Names" style="" parent="0" />
+        <mxCell id="jznCjMh6qff-W2xTqFjx-1" value="$$\xi$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="3jEwKh9Pe0ptTPQIIk5x-3" vertex="1">
+          <mxGeometry x="271" y="403" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="3jEwKh9Pe0ptTPQIIk5x-6" value="Names" style="locked=1;" parent="0" />
         <mxCell id="3jEwKh9Pe0ptTPQIIk5x-52" value="Weight&lt;div&gt;Optimizer&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Times New Roman;" parent="3jEwKh9Pe0ptTPQIIk5x-6" vertex="1">
           <mxGeometry x="314" y="402" width="70" height="40" as="geometry" />
         </mxCell>
@@ -190,7 +193,7 @@
         <mxCell id="Q-mhqSvsPF1NudLkKP7M-24" value="&amp;nbsp;&lt;span style=&quot;background-color: initial;&quot;&gt;Ref. Generator&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Times New Roman;" parent="3jEwKh9Pe0ptTPQIIk5x-6" vertex="1">
           <mxGeometry x="155" y="351" width="100" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="jXpnGiK7oi-8-GfHfyG--2" value="Constrained Optimization-based Neuro-Adaptive Controller" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Times New Roman;" vertex="1" parent="3jEwKh9Pe0ptTPQIIk5x-6">
+        <mxCell id="jXpnGiK7oi-8-GfHfyG--2" value="Constrained Optimization-based Neuro-Adaptive Controller" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Times New Roman;" parent="3jEwKh9Pe0ptTPQIIk5x-6" vertex="1">
           <mxGeometry x="179" y="284" width="310" height="30" as="geometry" />
         </mxCell>
       </root>

@@ -66,10 +66,10 @@ function [nn, nnOpt, dot_L, info] = nn_backward(nn, nnOpt, ctrlOpt, e, u_NN)
         [c, cd] = nn_cstr(nn, nnOpt, u_NN, nnGrad);
 
         ActSet  = double(c>0);
-        Lambda  = nnOpt.Lambda .* ActSet;
-        % Lambda  = nnOpt.Lambda;
-        c       = double(c .* ActSet);
-        cd      = double(cd .* ActSet);
+        % Lambda  = nnOpt.Lambda .* ActSet;
+        % c       = double(c .* ActSet);
+        % cd      = double(cd .* ActSet);
+        Lambda  = nnOpt.Lambda;
 
         % find gradient; theta, lambda
         V_grad = - nnOpt.alpha * (nn.eta'*nnOpt.W*e + cd' * Lambda);
@@ -91,8 +91,6 @@ function [nn, nnOpt, dot_L, info] = nn_backward(nn, nnOpt, ctrlOpt, e, u_NN)
         dhdu = [dhdu_11 dhdu_12; dhdu_21 dhdu_22];
 
         nn.eta = nn.eta + (A*nn.eta+B*dhdu*-nnGrad) * nnOpt.dt;
-
-
 
         % find gradient; theta, lambda
         V_grad = - nnOpt.alpha * nn.eta'*nnOpt.W*e;
