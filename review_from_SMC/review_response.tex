@@ -31,17 +31,27 @@
 \newcommand{\cred}[1]{{\ctxt{awesome}{#1}}}
 \newcommand{\cblue}[1]{{\ctxt{airforceblue}{#1}}}
 
+\newcommand{\etal}{\textit{et~al.\ }}
+\newcommand\eg{\textrm{e.g.,\ }}
+\newcommand\ie{\textrm{i.e.,\ }}
+
 \usepackage{kotex}
 
 \usepackage{hyperref}
-\hypersetup{
-  colorlinks=true,  % false: boxed links; true: colored links
-  linkcolor=black,  % color of internal links (change box color with linkbordercolor)
-  citecolor=black,  % color of links to bibliography
-  filecolor=black,  % color of file links
-  urlcolor=black,   % color of external links
-  backref=page,     % add a backlink in the bibliography
-}
+    \hypersetup{
+        pdftoolbar=false,        	% show Acrobat’s toolbar?
+        pdfmenubar=false,        	% show Acrobat’s menu?
+        pdffitwindow=false,     	% window fit to page when opened
+        pdfstartview={FitH},    	% fits the width of the page to the window
+        pdftitle={},    	% title
+        pdfauthor={},     	% author% links in new PDF window
+        colorlinks=true,       	% false: boxed links; true: colored links
+        linkcolor=black,          	% color of internal links (change box color with linkbordercolor)
+        citecolor=blue,       	% color of links to bibliography
+        filecolor=blue,      	% color of file links
+        urlcolor=blue,		% color of external links
+        backref=page,            % add a backlink in the bibliography
+    }
 \usepackage{cleveref}
 
 
@@ -129,7 +139,7 @@
 \end{generalcomment}
 
 \begin{revresponse}[]
-  We appreciate the Editor's candid assessment of our previous submission. 
+  We appreciate the Editors' candid assessment of our previous submission. 
   We took this overall concern seriously and undertook a comprehensive revision of the manuscript, as summarized in the \textbf{Overview of Major Changes} below.
   We believe that these revisions have substantially strengthened the technical rigor, significance, and presentation of the manuscript.
 
@@ -141,8 +151,9 @@
   \begin{enumerate}
 
     \item \textbf{Title and contribution clarification:} 
-      The main contributions of the paper have been clarified as the capability to handle multiple convex input constraints instead of weight and input constraints.
-      Moreover, target system is generalized from unknown Euler-Lagrange systems to unknown systems.
+      The main contributions of the paper have been clarified.
+      For example, the paper now emphasizes the capability to handle multiple convex input constraints instead of weight and input constraints, which is the main novelty of the proposed method.
+      Moreover, target system is generalized from unknown Euler-Lagrange systems to unknown MIMO systems.
       According to these changes, the title of the manuscript has been revised to clearly reflect the content and scope of the paper.
 
     \item \textbf{Literature review and comparison:} 
@@ -162,10 +173,12 @@
       % According to the discussion, we have selected the NAC without input constraint handling and the auxiliary system-based NAC as comparative methods, which is representative structural methods in the NAC literature.
 
     \item \textbf{Rigorous stability analysis:} 
-      We have improved and clarified the stability analysis, providing conditions for the stability of the proposed method.
+      We have improved and clarified the stability analysis, providing conditions for the closed-loop stability of the proposed method.
+      In specific, according to the re-constructed stability analysis, the tracking error and the adaptive variables, including the DNN weights and Lagrange multipliers, are shown to be bounded under the proposed adaptation laws.
 
     \item \textbf{Additional remarks on initialization and tuning:} 
       We have added additional remarks to explain recommendations for initialization and tuning of the proposed method.
+      We believe that these remarks will help readers to better understand the practical implementation of the proposed method.
 
     \item \textbf{Notation improvements:} 
       We have improved the notation throughout the manuscript to enhance clarity and consistency.
@@ -194,9 +207,8 @@
 
 \begin{revresponse}
   We concur with the reviewer that the main contribution of the paper was not clearly articulated in the previous submission. 
-  In the previous version, the contribution was stated as handling both weight and convex input constraints simultaneously in a unified constrained optimization framework.
-  However, we acknowledge that, over the previous stated contribution, the significance of the proposed method is to incorporate multiple convex input constraints into the NAC framework, which typically considers only the element-wise input constraints, as compared in Fig.~1 of the revised manuscript.
-
+  In the previous version, the major contribution was stated as handling both weight and convex input constraints simultaneously in a unified constrained optimization framework.
+  However, we acknowledge that, over the previously stated contribution, the significance of the proposed method is to incorporate multiple convex input constraints into the NAC framework, which typically considers only the element-wise input constraints, as compared in Fig.~1 of the revised manuscript, as shown below:
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r1c1_1.png}
@@ -209,11 +221,11 @@
     % \smallskip
     % {\small\itshape Excerpt from the revised manuscript: Table I.}
   \end{center}
-  The pros and cons of each method are discussed, and the novelty of the proposed method is clearly stated as follows:
+  In the table, the pros and cons of each method are discussed, and the novelty of the proposed method is clearly stated as follows:
   \begin{itemize}
 
     \item 
-      Rigorous stability analysis using Lyapunov-friendly structure like structural methods.
+      Rigorous stability guarantee using Lyapunov-friendly structure like structural methods.
 
     \item 
       Capability to handle multiple convex input constraints simultaneously, which is not possible with existing structural methods.
@@ -225,14 +237,14 @@
   
   \bigskip
 
-  Specifically, since our main focus is on the input saturation problem, barrier lyapunov function (BLF)-based methods are not considered in the comparison.
-  In the literature, BLF-based methods are typically used to handle state constraints, and incorporate the structural methods such as auxiliary system or smooth approximation methods to handle input constraints, as well.
+  Particularly, since our main focus is on the input saturation problem, barrier lyapunov function (BLF)-based methods are not considered in the comparison.
+  In the literature, BLF-based methods are typically used to handle state constraints, and additionally incorporate the structural methods such as auxiliary system or smooth approximation methods to handle input constraints, as well.
   Moreover, projection methods were not included in the comparison because the input-feasible set induced in the full DNN-weight space is generally highly nonlinear owing to the nonlinear dependence of the DNN output on its hidden-layer weights.
   Consequently, the projection methods are not typically employed in the NAC literature, and the comparison with the projection methods is not straightforward.
 
   \bigskip
 
-  The justification of the novelty over our prior work \cite{Ryu:2025aa}, \cite{Ryu:2025ab} is also clarified in lines 200-210 of the revised manuscript, as follows:
+  The justification of the novelty over our prior works \cite{Ryu:2025aa}, \cite{Ryu:2025ab} is also clarified in lines 200-210 of the revised manuscript, as follows:
   \begin{itemize}
     \item 
       The input constraints considered in the previous work \cite{Ryu:2025aa} were limited to norm constraints, which are a specific type of convex constraint.
@@ -243,7 +255,7 @@
       In the revised manuscript, we have conducted real-time experimental validations on a 2-link robotic manipulator system, which demonstrates the applicability in real-world scenarios.
 
     \item 
-      Due to the high mathematical complexity of the DNN, the previous work \cite{Ryu:2025aa}, \cite{Ryu:2025ab} employed a single hidden layer NN, while the revised manuscript employs DNN with multiple hidden layers.
+      Due to the high mathematical complexity of the DNN, the previous works \cite{Ryu:2025aa}, \cite{Ryu:2025ab} employed single hidden layer NNs, while the revised manuscript employs DNN with multiple hidden layers.
       Moreover, the rigorous stability analysis has been extended to accommodate the DNN structure.
       
   \end{itemize}
@@ -267,7 +279,7 @@
 	We appreciate the reviewer's comment regarding the boundedness of the Lagrange multipliers in the adaptation law (16a). 
   In the revised manuscript, we have re-conducted the stability analysis and provided a rigorous proof of the boundedness of system in Section~IV of the revised manuscript.
 
-  Specifically, the Lyapunov function of output-layer $V_k$ and inner-layer $V_i,\ \forall i\in\{0,\dots,k-1\}$ are defined using tracking errors and adaptive variables including the Lagrange multipliers, as shown below:
+  Specifically, the Lyapunov function of output-layer $V_k$ and inner-layer $V_i,\ \forall i\in\{0,\dots,k-1\},$ are defined using tracking errors and adaptive variables including the Lagrange multipliers, as shown below:
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r1c2_1.png}
@@ -390,7 +402,7 @@
 
 \begin{revresponse}
 	We agree with the reviewer that the introduction in the previous submission was not sufficiently detailed to clearly convey the challenges and gaps addressed by the proposed work. 
-  As we mentioned in \textbf{Overview of Major Changes}, we have revised the title of the manuscript to clearly reflect the main contribution of the proposed method, which is the capability to handle multiple convex input constraints in the NAC framework.
+  As we mentioned in \textbf{Overview of Major Changes} in the response to editors, we have revised the title of the manuscript to clearly reflect the main contribution of the proposed method, which is the capability to handle multiple convex input constraints in the NAC framework.
 
   \bigskip
 
@@ -424,7 +436,7 @@
 
   We are aware of that even proposed method had demonstrated its capability to handle multiple convex input constraints through the real-time implementation, it is only able to handle the constraints in a soft manner, meaning that the constraints may be violated during the adaptation process.
   Therefore, we mentioned that extending our approach to tackle hard constraints to ensure safety, is very important.
-  Currently, many methods to incorporate hard constraints are being reviewed, and we are planning to incorporate them into the proposed method in the future, as stated in the conclusion section of the revised manuscript.
+  Currently, many methods to incorporate hard constraints are being reviewed, and we are planning to employ them into the proposed method in the future, as stated in Lines 856-863 of the conclusion section.
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r2c2_2.png}
@@ -443,7 +455,7 @@
 
 \begin{revresponse}
 	We agree with that the requirements for the DNN weights to remain bounded were not clearly stated in the previous version.
-  In the validations of the revised manuscript, we have provided regarding analysis with the case of NAC without input constraint handling to demonstrate the importance of weight boundedness guarantees in the presence of input constraints.
+  To demonstrate the importance of weight boundedness guarantees in the presence of input constraints, we have provided corresponding analysis with the case of NAC which does not consider input constraints, in the validations of the revised manuscript.
 
   \bigskip
 
@@ -453,7 +465,7 @@
     \includegraphics[width=0.99\linewidth]{figs/r2c3_1.png}
   \end{center}
 
-  In Fig.~7(f), the DNN weights of (C$_4$) which does not consider input constraints, grows unboundedly when the input is saturated, while the DNN weights of other controllers which consider input constraints, remains bounded.
+  In Fig.~7(f), the DNN weights of (C$_4$) which does not consider input constraints, grow unboundedly when the input is saturated, while those of other controllers which consider input constraints remain bounded.
   This demonstrates the importance of weight boundedness guarantees in the presence of input constraints.
 
 \end{revresponse}
@@ -469,13 +481,13 @@
 
 \begin{revresponse}
 	We thank the reviewer's comment.
-  We are not entirely certain whether the reviewer intended to confirm that the actual control law or a function to be approximated by the DNN is free from singularities, or to request an additional analysis of a particular potential singularity.
+  We are not entirely certain whether the reviewer intended to confirm that the actual control law or the function to be approximated by the DNN is free from singularity, or to request an additional analysis of a particular potential singularity.
   
   \bigskip
 
-  We have interpreted the comment as a request to clarify whether a singularity may occur in the proposed control signal or in the function to be approximated by the DNN.
-  Under this interpretation, we clarify that, since the DNN weights are bounded according to the stability analysis, the control signal is guaranteed to be bounded and free from singularities.
-  Furthermore, the function approximated did not involve any matrix inversion in the previous submission.
+  We have interpreted the comment as a request to clarify whether singularity may occur in the control signal or in the function to be approximated by the DNN.
+  Under this interpretation, we clarify that, since the DNN weights are bounded according to the stability analysis, the control signal is guaranteed to be bounded and free from singularity.
+  Furthermore, the approximated function did not involve any matrix inversion in the previous submission.
   In the revised manuscript, the function actually contains a matrix inversion of the control effectiveness matrix $\boldsymbol{B}$, as shown below:
   \begin{center}
     \centering
@@ -484,11 +496,12 @@
 
   \bigskip
 
-  However, by Assumption~2, the control effectiveness matrix $\boldsymbol{B}$ is guaranteed to be invertible, and therefore the function is well-defined and free from singularities.
+  However, the user-defined matrix $\boldsymbol{P}$ is assumed to be symmetric positive definite, and, the control effectiveness matrix $\boldsymbol{B}$ is guaranteed to be invertible by Assumption~2, as shown below:
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r2c4_2.png}
   \end{center}
+  Therefore the function is well-defined and free from singularity.
 
   \bigskip
 
@@ -507,14 +520,16 @@
 
 \begin{revresponse}
   We agree with the reviewer that the error bounds required a more comprehensive analysis.
-  In the revised manuscript, we have derived compact ultimate-bound sets for the tracking error and the adaptive variables, including the DNN weights and Lagrange multipliers, as given in (28) and (33) of the revised manuscript.
+  In the revised manuscript, we have derived compact ultimate-bound sets for the tracking error and the adaptive variables, including the DNN weights and Lagrange multipliers, as given in (28) and (33) in Section~IV.
   We have also constructed the corresponding positively invariant sublevel sets in (29) and (34), based on which Theorem~1 establishes uniform ultimate boundedness.
 
   \bigskip
 
-  The derived sets provide an analytical characterization of the ultimate bounds. However, their exact sizes cannot generally be evaluated numerically a priori because they depend on unknown quantities, including the bounds on the DNN approximation error and arbitrary constants from using Young's inequality.
+  The derived sets provide an analytical characterization of the ultimate bounds. 
+  However, their exact sizes cannot generally be evaluated numerically a priori because they depend on unknown quantities, including the bounds on the DNN approximation error and arbitrary constants from using Young's inequality in the analysis.
   We have explicitly clarified this limitation in the revised manuscript. 
-  Furthermore, we have added Remarks~2--4 to provide practical guidance on initialization, desired trajectory design, and parameter selection, which increases the likelihood that the initial condition requirements of the stability analysis are satisfied.
+  Furthermore, we have added Remarks~2--4 in the end of Section~V to provide practical guidance on initialization, desired trajectory design, and parameter selection, which increases the likelihood that the initial condition requirements of the stability analysis are satisfied.
+
 \end{revresponse}
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -529,20 +544,21 @@
 
 \begin{revresponse}
   We appreciate this observation.
-  As we mentioned in previous response regarding the advantages and limitations of the proposed method, it handles the constraints in a soft manner.
-  Therefore, since the DNN weights are adapted continuously, abrupt changes in the control signal are typically avoided, and the constraints will be eventually satisfied.
+  As we mentioned in previous response (Comment 2), the proposed method handles the constraints in a soft manner using continuous adaptation of the DNN weights and Lagrange multipliers.
+  Therefore, abrupt changes in the control signal are typically avoided, and the constraints will be eventually satisfied along the adaptation process.
 
   \bigskip
 
-  However, the control signal potentially exhibits high-frequency oscillations at the extremes of the bounds, as discussed in Remark~4 of the revised manuscript, according to the parameters of the adaptation laws, $\alpha$ and $\beta_i,\beta_j$.
-  This is because $\alpha$ determines the entire adaptation rate of the DNN weights, while the update rates of the Lagrange multipliers are directly related to the constraints handling, and therefore the control signal.
-  We provided a parametric study on the update rate of input norm constraint to investigate the effect of the update rate on the control signal.
+  However, the control signal potentially exhibits high-frequency oscillations at the extremes of the bounds, as discussed in Remark~4 of the revised manuscript, depending on the parameters of the adaptation laws, $\alpha$ and $\beta_i,\beta_j$.
+  This is because the adaptation gain $\alpha$ determines the entire adaptation speed of the DNN weights, while the update rates of the Lagrange multipliers $\beta_i,\beta_j$ are directly related to the constraints handling, and therefore the control signal.
+  We provided a parametric study on the update rate of input norm constraint to investigate the effect of the parameter on the control signal.
   In the study, we observed that a higher update rate of the Lagrange multipliers leads to more aggressive adaptation of the DNN weights to satisfy the constraints, which can result in high-frequency oscillations in the control signal at the extremes of the bounds, as shown in Figs.~9(b) and (c) of the revised manuscript, which is presented below:
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r2c6_1.png}
   \end{center}
-  where (C$_1$) had the higher update rate of the Lagrange multiplier for the input norm constraint, than (C$_2$), and therefore (C$_1$) exhibited more high-frequency oscillations in the corresponding Lagrange multiplier and the control signal at the extremes of the bounds than (C$_2$).
+  where (C$_1$) had the higher update rate of the Lagrange multiplier for the input norm constraint, than (C$_2$), and therefore (C$_1$) exhibited more high-frequency oscillations in the control signal at the extremes of the bounds than (C$_2$).
+  Moreover, the Lagrange multipliers of (C$_1$) are observed to repeatedly increase and decrease at the extremes of the bounds to satisfy the constraints with higher frequency than those of (C$_2$), which is consistent with the control signal.
 
   \bigskip
 
@@ -574,7 +590,7 @@
   The remark provides practical guidance on the selection of the parameters, as follows:
   \begin{itemize}
     \item
-      Higher values of the parameters lead to faster adaptation of the DNN weights and satisfaction of the constraints, but may also result in high-frequency oscillations in the control signal at the extremes of the bounds.
+      Higher values of the parameters lead to faster adaptation of the DNN weights and satisfaction of the constraints, but may also result in high-frequency oscillations in the control signal.
 
     \item
       However, with lower values of the parameters, the adaptation of the DNN weights and satisfaction of the constraints may be slower.
@@ -612,13 +628,13 @@
 \begin{revresponse}
 
   We appreciate the reviewer's comment regarding the evaluation under large initial conditions. 
-  We understand this comment as referring to a large initial tracking error. 
+  We understand this comment as referring to a large initial tracking error, and DNN weights.
   In the intended implementation of the proposed controller, the system is initialized at a stable equilibrium point, and the warm-up trajectory is designed to gradually excite the system around the equilibrium point, as described in Remark~3 of the revised manuscript.  
   \begin{center}
     \includegraphics[width=0.65\linewidth]{figs/r2c8_1.png}
   \end{center}
-  Thus, the initial tracking error is kept small by design. 
-  This is because the DNN is not pre-trained, and therefore careful initial excitation is important for successful adaptation.
+  Thus, even if the initial tracking error is large, it is expected to be reduced during the warm-up trajectory, and the large DNN weights can be avoided by initializing the DNN weights to small values.
+  This is because the DNN is not pre-trained, and therefore careful initial excitation is very important for successful adaptation.
   
   \bigskip
 
@@ -639,7 +655,8 @@
 \begin{revresponse}
 	We thank the reviewer for this comment. 
   However, we were unable to identify a suspension system or a corresponding discussion in either the previous or the resubmitted manuscript. 
-  Our study focuses on a nonlinear multi-input multi-output (MIMO) system with same number of inputs and states, and 2-link robotic manipulator system was used in the real-time experimental validation.
+  Our study considers a class of nonlinear multi-input multi-output (MIMO) systems with the same number of inputs and states, and a 2-DOF robotic manipulator was used for real-time experimental validation. 
+  Although the proposed framework could potentially be applied to a suspension system if its dynamics and control objectives satisfy the assumptions adopted in this study, such an application was not considered or evaluated in the present manuscript.
 
   \bigskip
   
@@ -676,7 +693,7 @@
   \end{center}
 
   In particular, the proposed CONAC implementations, (C$_1$) and (C$_2$), achieved larger reductions in the RMS tracking errors than (C$_3$). 
-  This difference arises because CONAC directly incorporates the combined admissible input set into its adaptation process and can therefore utilize the available control authority more effectively. 
+  These differences arise because CONAC directly incorporates the combined admissible input set into its adaptation process and can therefore utilize the available control authority more effectively. 
   In contrast, the auxiliary-system design of (C$_3$) handles only element-wise input overflow and consequently exhibits more conservative control behavior.
 
   We acknowledge that the comparison between Episode~1 and Episode~2 does not provide a complete classical transient-response characterization. 
@@ -723,6 +740,11 @@
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r3c1_2.png}
   \end{center}
+  which can be interpreted as a combination of the upper and lower bounds on the control input, and the norm constraint on the control input in (37) of the revised manuscript, as shown below:
+  \begin{center}
+    \centering
+    \includegraphics[width=0.65\linewidth]{figs/r3c1_4.png}
+  \end{center}
 
   Furthermore, the saturation function is illustrated in Fig.~5(b), as shown below:
   \begin{center}
@@ -750,7 +772,7 @@
 
   \bigskip
 
-  First, the tracking error minimization problem under the input constraints with bounded DNN weights is formulated as a constrained optimization problem, as shown below:
+  First, the tracking error $\boldsymbol{e}$ minimization problem under the input constraints $c_j^u$ and bounded DNN weights $\widehat{\boldsymbol{\theta}}_i$ is formulated as a constrained optimization problem, as shown below:
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r3c2_1.png}
@@ -760,6 +782,7 @@
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r3c2_2.png}
   \end{center}
+  where $\sigma_i$ and $\lambda_j$ are Lagrange multipliers for the weight boundedness constraints and input constraints, respectively.
 
   To solve the constrained optimization problem, the primal-dual problem is formulated using the Lagrangian function, as follows:
   \begin{center}
@@ -810,13 +833,13 @@
 \begin{revresponse}
 	We appreciate the reviewer's comment regarding the number of contributions listed in the previous manuscript.
   As mentioned in \textbf{Overview of Major Changes}, in the revised manuscript, we have made a more concise and focused statement of the contributions.
-  The contributions in Section~I.D of the revised manuscript is as follows:
+  The contributions in Section~I.D of the revised manuscript are as follows:
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r3c4_1.png}
   \end{center}
 
-  Among the listed contributions, the first three contributions are the main technical contributions of the proposed method.
+  Among the listed contributions, the first contribution is the main technical contribution of the proposed method.
   As reviewed in the introduction of the revised manuscript, the existing methods have limitations in terms of the types of input constraints they can handle, the computational burden, and the stability guarantees.
   The proposed method addresses these limitations by providing a unified framework that can handle multiple convex input constraints with rigorous stability guarantees and low computational burden.
 
@@ -834,7 +857,7 @@
 
 \begin{revresponse}
   We thank the reviewer for pointing out the issues with the symbol definitions. 
-  We have carefully reviewed the entire manuscript and corrected inconsistent, ambiguous, and previously undefined notation. 
+  We have carefully reviewed the entire manuscript and corrected inconsistent and ambiguous notation. 
   We have also ensured that all symbols are defined at their first occurrence and used consistently throughout the manuscript.
 \end{revresponse}
 
@@ -850,26 +873,27 @@
 \end{revcomment}
 
 \begin{revresponse}
-	We thank the reviewer for this comment regarding the simulation section.
+	We thank the reviewer for this comment regarding the validation section.
   In the revised manuscript, as the main contribution of the proposed method is the capability to handle multiple convex input constraints in the NAC framework, the validation results are focused on demonstrating this capability.
 
   \bigskip
 
-  We zoomed in the experiment results on the time interval of 26.6 s to 27.3 s in Fig.~9 (which corresponds to Fig.~6 in the previous submission) to clearly illustrate the behavior of the control signal and the satisfaction of the input constraints during a period when the control signal approaches the boundaries of the convex input constraints.
+  Particularly, we zoomed in the experiment results on the time interval of 26.6 s to 27.3 s in Fig.~9 (which corresponds to Fig.~6 in the previous submission) to clearly illustrate the behavior of the control signal and the satisfaction of the input constraints during a period when the control signal approaches the boundaries of the convex input constraints.
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r3c6_1.png}
   \end{center}
-  As shown in Fig.9(b), the control signal of the proposed CONAC implementations, (C$_1$) and (C$_2$), fully utilized the control authority while satisfying the input constraints, whereas the control signal of (C$_3$) was more conservative and did not fully utilize the available control authority, since it only handled element-wise input overflow according to the auxiliary-system design.
+  As shown in Fig.9(b), the control signals of the proposed method, (C$_1$) and (C$_2$), fully utilized the control authority while handling the input constraints, whereas the control signal of (C$_3$) was more conservative and did not fully utilize the available control authority, since it only handled element-wise input overflow according to the auxiliary-system design.
   The corresponding tracking errors on the same time interval are shown in Fig.9(a).
   With larger control authority utilization, the proposed methods, (C$_1$) and (C$_2$), achieved better tracking performance than (C$_3$) during this period.
   For the case of (C$_4$) which does not consider input constraints, the control signal exceeded the input constraints and resulted in a large tracking error.
 
-  The remaining figure, Fig.~9(c), shows the parametric study on the update rate of input norm constraint to investigate the effect of the update rate on the control signal, which demonstrates the trade-off between constraint-handling speed and control signal smoothness.
+  The remaining figure, Fig.~9(c), shows the parametric study on the update rate of Lagrange multiplier for the input norm constraint to investigate the effect of the update rate on the control signal.
+  The study demonstrates the trade-off between constraint-handling speed and control signal smoothness, \ie high update rates lead to faster constraint handling but may result in high-frequency oscillations in the control signal at the boundaries of the convex input constraints, while low update rates lead to slower constraint handling but smoother control signals.
 
   \bigskip
 
-  We hope this demonstrates the key contributions of the proposed method and clarifies the purpose of the simulation results, particularly Fig.~9 (previously Fig.~6).
+  We hope this demonstrates the key contributions of the proposed method and clarifies the purpose of the validation results, particularly Fig.~9 (previously Fig.~6).
 
 \end{revresponse}
 
@@ -908,9 +932,9 @@
   \bigskip
 
   Nevertheless, because the reviewer's comment concerns the theoretical relationship between the previous paper and the present manuscript, we would like to clarify the following point. 
-  The previous conference paper also states the positive definiteness of the inverse of the differential inductance matrix $\boldsymbol{L}_rm{s}^{dq}$ in Fact 1 of Section~II.A, which is analogous to the positive definiteness of the control effectiveness matrix $\boldsymbol{B}$.
+  The previous conference paper also states the positive definiteness of the inverse of the differential inductance matrix $\boldsymbol{L}_{\mathrm{s}}^{dq}$ in Fact 1 of Section~II.A, which is analogous to the positive definiteness of the control effectiveness matrix $\boldsymbol{B}$.
   Thus, the identity-matrix approximation in that paper was not introduced without information regarding the sign of the relevant gradient. 
-  We acknowledge that the previous conference paper did not provide a separate quantitative analysis of the approximation error.
+  In addition, we acknowledge that the previous conference paper did not provide a separate quantitative analysis of the approximation error.
   However, as clarified above, the approximation itself was based on the known positive definiteness of the corresponding control-effectiveness matrix.
 
   \bigskip
@@ -938,7 +962,7 @@
 
   \bigskip
 
-  However, since the exact analysis of the performance and stability of the proposed methods due to the nature of the DNN approximation, it is not straightforward to provide a theoretical analysis of the optimal number of nodes in the DNN architecture.
+  However, due to the nature of the DNN approximation, the exact analysis is not straightforward to provide a theoretical selection of the optimal number of nodes in the DNN architecture.
   Thus, in the validations, the architecture of the DNNs was selected empirically by considering both approximation performance and the computational constraints of the target MCU. 
   During implementation, we evaluated several candidate architectures with different numbers of hidden layers and nodes. 
   Increasing the network size beyond two hidden layers with four nodes per layer resulted in only a marginal improvement in tracking performance, while increasing the inference time and memory requirements. 
@@ -955,13 +979,13 @@
 
   \bigskip 
 
-  In addition, in the revised manuscript, we have added a statement regarding the selection of the architecture of the DNNs in Line 727-729, as follows:
+  In addition, in the revised manuscript, we have added a statement regarding the empirical selection of the architecture of the DNNs, in Line 727-729, as follows:
   \begin{quotation}
     "
     Specifically, the architecture of the DNNs are empirically chosen considering the approximation capability and computational efficiency.
     "
   \end{quotation}
-  to clarify that the architecture was selected as a practical trade-off rather than a theoretically optimal configuration.
+  to clarify that the architecture was selected as a practical trade-off rather than a theoretically optimal configuration in the validation experiments.
 \end{revresponse}
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -984,7 +1008,7 @@
 
   Regarding system uncertainties, since the proposed method is NAC method which requires no prior knowledge of the system dynamics, it is inherently robust to parametric uncertainties.
   However, we acknowledge that the current validation does not include additional disturbances or uncertainties beyond the inherent parametric uncertainties of the system.
-  Therefore, in Lines 856-861 of the conclusion in the revised manuscript, we have added a statement to clarify that the consideration of industrial scenarios, disturbances, and uncertainties is left for future work, as follows:
+  Therefore, in Lines 856-861 of the conclusion in the revised manuscript, we have added a statement to clarify that the consideration of disturbances, and uncertainties is left for future work, as follows:
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r2c2_2.png}
@@ -1026,7 +1050,7 @@
 
 \begin{revresponse}
   We thank the reviewer for this comment. 
-  As clarified in our response to the previous comment, the reference-current waveform mentioned by the reviewer pertains to the previously published conference paper on synchronous-machine drives, which was provided solely as related reference material and is not the manuscript under consideration.
+  As clarified in our response to the previous comment, the reference-current waveform mentioned by the reviewer pertains to the previously published conference paper on synchronous-machine drives.
 
   The present manuscript does not employ a reference-current waveform. 
   Its validation is conducted on a two-link robotic manipulator using smooth desired joint trajectories composed of quintic polynomial segments. 
@@ -1054,7 +1078,7 @@
   \bigskip
 
   We emphasize, however, that the conference paper was provided solely as related reference material and that the present manuscript does not rely on its Implicit-Function-Theorem-based existence argument. 
-  In the present manuscript, the ideal control law is defined directly under the assumed nonsingularity of the control-effectiveness matrix, and the effect of input saturation is treated separately in the closed-loop stability analysis. 
+  In the present manuscript, the ideal control law is defined directly under the assumed nonsingularity of the control-effectiveness matrix. 
   Therefore, the identified limitation of the previous conference paper does not affect the theoretical results established in the present manuscript.
 
 \end{revresponse}
@@ -1068,24 +1092,49 @@
 	The paper focuses on the Constrained Optimization control, but what is the difference between it and the following latest achievements: "Adaptive critic design for safety-optimal FTC of unknown nonlinear systems with asymmetric constrained-input", "Reinforcement learning-based secure tracking control for nonlinear interconnected systems: An event-triggered solution approach", "A lightweight network enhanced by attention-guided cross-scale interaction for underwater object detection", and "Observer based fault tolerant control design for saturated nonlinear systems with full state constraints via a novel event-triggered mechanism "? The discussion and analysis between them may help improve the quality and persuasiveness of the paper's innovation.
 \end{revcomment}
 
-\begin{howtoanswer}
-	\begin{itemize}
-		\item 제공된 기존 논문은 아래와 같음.
-		\begin{itemize}
-			\item Adaptive critic design for safety-optimal FTC of unknown nonlinear systems with asymmetric constrained-input
-			\item Reinforcement learning-based secure tracking control for nonlinear interconnected systems: An event-triggered solution approach
-			\item A lightweight network enhanced by attention-guided cross-scale interaction for underwater object detection
-			\item Observer based fault tolerant control design for saturated nonlinear systems with full state constraints via a novel event-triggered mechanism
-		\end{itemize}
-		\item 위 논문들과 본 논문의 차별성을 명확히 설명.
-	\end{itemize}
-\end{howtoanswer}
-
 \begin{revresponse}
-	We ...
-	\begin{changes}
-		This really important sentence was added to the paper.
-	\end{changes}
+  We thank the reviewer for suggesting these recent studies. 
+  We have examined them from a constrained-optimization perspective and clarified their differences from the proposed CONAC framework.
+
+  \bigskip
+
+  First, Zhang \etal \cite{Zhang:2024ab} formulated adaptive dynamic programming (ADP) problems for unknown nonlinear systems with actuator failures and asymmetric input constraints.
+  They designed the infinite-horizon cost function including CBF-based safety constraints, input saturation, and actuator-failure.
+  Then, the Hamilton-Jacobi-Isaacs (HJI) equation is solved to derive the optimal control law using zero-sum game theory, \ie minimizing the cost function with respect to the control input and maximizing it with respect to the actuator-failure input.
+  The optimal cost function is approximated by a critic neural network (CNN) and the optimal control law is derived from the CNN, according to the HJI equation.
+  In particular, the asymmetric input constraints are handled by introducing a non-quadratic function in the cost function, which is designed to result in an asymmetric bounded function with $\tanh(\cdot)$, ensuring that the control law satisfies the prescribed box input constraints.
+
+  Similarly, Qin \etal \cite{Qin:2025aa} formulated the ADP problem for interconnected nonlinear systems with uncertainties induced by the interconnections.
+  In this paper, the cost function is formulated to be maximized with respect to the uncertainties, instead of the actuator-failure input in \cite{Zhang:2024ab}.
+  The CNN is used to approximate the optimal cost function like \cite{Zhang:2024ab}, and the optimal control law is derived from the CNN.
+
+  In addition, Qin \etal \cite{Qin:2025ab} also proposed similar control design which reshapes the constrained system into an unconstrained system by using a smooth mapping function.
+  In terms of the input saturation, symmetric input constraints are considered similarly to \cite{Zhang:2024ab}.
+  Unlike \cite{Zhang:2024ab} and \cite{Qin:2025aa}, the optimal control law is derived from the Hamilton-Jacobi-Bellman (HJB) equation, instead of the HJI equation, and the optimal cost function is approximated by a CNN similarly to \cite{Zhang:2024ab} and \cite{Qin:2025aa}.
+
+  \bigskip
+
+  They all formulated the constrained optimization problem based on the ADP framework.
+  The optimal control law is derived from HJI or HJB equation, and the optimal cost function is approximated by a CNN.
+  Therefore, the control law can be derived from the CNN directly.
+  However, they are all limited to the specific types of input constraints, \ie asymmetric or symmetric box constraints, and cannot generally handle other types of convex input constraints.
+  In contrast, the proposed CONAC framework can handle a broader class of convex input constraints, including element-wise bounds, norm constraints, and other coupled convex input constraints, by explicitly incorporating the admissible input set into the constrained optimization problem and deriving the adaptation laws from the primal-dual formulation.
+
+  In terms of the objective function, since the proposed method is based on instantaneous tracking-error minimization, it may be theoretically enhanced by considering the infinite-horizon cost function like \cite{Zhang:2024ab, Qin:2025aa, Qin:2025ab}.
+  Moreover, utilizing game theory to handle actuator failures or uncertainties, as in \cite{Zhang:2024ab, Qin:2025aa}, may also be a potential extension of the proposed method.
+  Thus, we left regarding statements in Lines 856-863 of conclusion section in the revised manuscript, as follows:
+  \begin{center}
+    \centering
+    \includegraphics[width=0.65\linewidth]{figs/r2c2_2.png}
+  \end{center}
+
+  \bigskip
+
+  We also carefully examined the fourth suggested study from Zhang \etal \cite{Zhang:2025aa}. 
+  This work develops a lightweight neural network for underwater object detection and optimizes its detection performance through offline supervised learning. 
+  It does not formulate a dynamical control problem or consider state or control-input constraints, adaptive control laws, or closed-loop stability. 
+  Therefore, although it is broadly relevant to computationally efficient neural-network implementation, it is not a direct methodological counterpart to the constrained control problem considered in the present manuscript.
+
 \end{revresponse}
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1101,8 +1150,8 @@
 % References
 % ══════════════════════════════════
 \newpage
-\bibliographystyle{IEEEtran}
-% \bibliographystyle{apalike}
-\bibliography{../localRefs, ../fromLR}
+% \bibliographystyle{IEEEtran}
+\bibliographystyle{apalike}
+\bibliography{../localRefs, ../fromLR, reviewRefs}
 
 \end{document}

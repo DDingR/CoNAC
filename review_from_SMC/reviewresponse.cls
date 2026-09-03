@@ -102,8 +102,8 @@
 	\section*{General Approach of How to Answering Comments}
 }
 
-\newcommand*{\reviewresponse@editorlabel}{Editor\ifnum\value{editorresponse}=1\else~\arabic{editorresponse}\fi}
-\newcommand*{\reviewresponse@reviewerlabel}{Reviewer\ifnum\value{reviewer}=1\else~\arabic{reviewer}\fi}
+\newcommand*{\reviewresponse@editorlabel}{Editor}
+\newcommand*{\reviewresponse@reviewerlabel}{Reviewer~\arabic{reviewer}}
 
 \newcommand*{\editor}{
 	\clearpage
