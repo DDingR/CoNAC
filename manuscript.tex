@@ -89,7 +89,7 @@
   Constrained Optimization-Based Neuro-Adaptive Control (CONAC) for Unknown Systems Under Multiple Convex Input Constraints
 } %% Article title
 
-\author{}
+% \author{}
 % \author{
 %   Myeongseok Ryu, Donghwa Hong, and Kyunghwan Choi
 % \thanks{
@@ -1267,7 +1267,7 @@ Thus, the equilibria characterize candidates for locally optimal solutions of th
         \STATE $\mv{u}^{(r)}\leftarrow\mm{P}\NN(\NNin^{(r)};\estwth^{(r)}) $ based on \eqref{eq:ctrl:NN:actual}
         \STATE Apply $\mv{u}^{(r)}$ to the system in \eqref{eq:sys}
 
-      \STATE \textit{// Update DNN weights (Section~\ref{sec:main:result:sub:adap:laws})}
+      \STATE \textit{// Update Adaptive Variables (Section~\ref{sec:main:result:sub:adap:laws})}
 
       \STATE Compute $\pptfrac{\estNN^{(r)}}{\estwth^{(r)}}$ as defined in \eqref{eq:gradient:phi}
       \STATE Compute ${c^{\theta}_i}^{(r)},{c^{u}_j}^{(r)}$ and $\pptfrac{{c^{u}_{j}}^{(r)}}{\estwth^{(r)}}$ for all $i\in\mathcal{K}, j\in\mathcal{I}$
