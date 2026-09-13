@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36">
   <diagram name="Page-1" id="PFW9ROUeaLnqZc74HKiG">
-    <mxGraphModel dx="329" dy="198" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1600" math="1" shadow="0">
+    <mxGraphModel dx="395" dy="233" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="1600" math="1" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="WTa6hD70Uzwggp_HB0Cs-2" parent="0" style="locked=1;" value="Area" />
@@ -68,8 +68,8 @@
         <mxCell id="YV2TrkgiVYQrZBGNgkxZ-15" parent="38fJi7SkvV0uXjDz1UZW-17" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;" value="$$u_2$$" vertex="1">
           <mxGeometry height="50" width="40" x="671" y="256" as="geometry" />
         </mxCell>
-        <mxCell id="YV2TrkgiVYQrZBGNgkxZ-16" parent="38fJi7SkvV0uXjDz1UZW-17" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontColor=#4C0099;" value="$$\underline{u}_1$$" vertex="1">
-          <mxGeometry height="50" width="40" x="620" y="341" as="geometry" />
+        <mxCell id="YV2TrkgiVYQrZBGNgkxZ-16" parent="38fJi7SkvV0uXjDz1UZW-17" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontColor=#4C0099;" value="$$-\overline{u}_1$$" vertex="1">
+          <mxGeometry height="40" width="50" x="612" y="346" as="geometry" />
         </mxCell>
         <mxCell id="YV2TrkgiVYQrZBGNgkxZ-17" parent="38fJi7SkvV0uXjDz1UZW-17" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=10;fontColor=#006633;" value="$$\underline{u}_2$$" vertex="1">
           <mxGeometry height="50" width="40" x="651" y="361" as="geometry" />
@@ -83,8 +83,8 @@
         <mxCell id="YV2TrkgiVYQrZBGNgkxZ-22" parent="38fJi7SkvV0uXjDz1UZW-17" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontFamily=Times New Roman;fontSize=10;labelBackgroundColor=default;fillColor=none;fontColor=#006633;" value="$$\underline{u}_2\le u_2 \le \overline{u}_2$$" vertex="1">
           <mxGeometry height="50" width="80" x="677" y="399" as="geometry" />
         </mxCell>
-        <mxCell id="YV2TrkgiVYQrZBGNgkxZ-24" parent="38fJi7SkvV0uXjDz1UZW-17" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontFamily=Times New Roman;fontSize=10;labelBackgroundColor=none;fillColor=none;fontColor=#4C0099;" value="$$\underline{u}_1\le u_1 \le \overline{u}_1$$" vertex="1">
-          <mxGeometry height="50" width="80" x="587" y="268" as="geometry" />
+        <mxCell id="YV2TrkgiVYQrZBGNgkxZ-24" parent="38fJi7SkvV0uXjDz1UZW-17" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontFamily=Times New Roman;fontSize=10;labelBackgroundColor=none;fillColor=none;fontColor=#4C0099;" value="$$-\overline{u}_1\le u_1 \le \overline{u}_1$$" vertex="1">
+          <mxGeometry height="40" width="90" x="582" y="273" as="geometry" />
         </mxCell>
         <mxCell id="Xzz7v_9G3W6UOt4W2gcM-1" parent="38fJi7SkvV0uXjDz1UZW-17" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;fontFamily=Times New Roman;fontSize=10;labelBackgroundColor=default;fontColor=#006633;" value="asymmetric constraint" vertex="1">
           <mxGeometry height="30" width="110" x="662" y="396" as="geometry" />

@@ -1,4 +1,7 @@
 \documentclass[12pt,english]{reviewresponse}
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL tmp2.tex   Sun Sep 13 17:10:20 2026
+%DIF ADD tmp1.tex   Sun Sep 13 17:10:20 2026
 
 % Toggle priority labels and priority-based box colors in revcomment blocks.
 % \reviewresponseleveltrue
@@ -47,14 +50,20 @@
         pdfauthor={},     	% author% links in new PDF window
         colorlinks=true,       	% false: boxed links; true: colored links
         linkcolor=black,          	% color of internal links (change box color with linkbordercolor)
-        % —————————————————
-        citecolor=black,       	% color of links to bibliography
-        filecolor=black,      	% color of file links
-        urlcolor =black,		% color of external links
-        % —————————————————
-        % citecolor=blue,       	% color of links to bibliography
-        % filecolor=blue,      	% color of file links
-        % urlcolor=blue,		% color of external links
+%DIF 50-52c50-57
+%DIF <         citecolor=blue,       	% color of links to bibliography
+%DIF <         filecolor=blue,      	% color of file links
+%DIF <         urlcolor=blue,		% color of external links
+%DIF -------
+        % ————————————————— %DIF > 
+        citecolor=black,       	% color of links to bibliography %DIF > 
+        filecolor=black,      	% color of file links %DIF > 
+        urlcolor =black,		% color of external links %DIF > 
+        % ————————————————— %DIF > 
+        % citecolor=blue,       	% color of links to bibliography %DIF > 
+        % filecolor=blue,      	% color of file links %DIF > 
+        % urlcolor=blue,		% color of external links %DIF > 
+%DIF -------
         backref=page,            % add a backlink in the bibliography
     }
 \usepackage{cleveref}
@@ -107,8 +116,9 @@
   }
 }
 \author{
-	Anonymous Authors
-}
+	\DIFdelbegin \DIFdel{\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+}\DIFdelend \DIFaddbegin \DIFadd{Anonymous Authors
+}\DIFaddend }
 % \author{
 % 	Myeongseok Ryu, Donghwa Hong, and Kyunghwan Choi
 % }
@@ -116,8 +126,98 @@
 	IEEE Transactions on Systems, Man and Cybernetics: Systems
 }
 \manuscript{SMCA-25-08-3137}
-\editorname{Prof. Huijun Gao}
-% \editorname{Dr. Robert Kozma}
+%DIF < \editorname{Dr. Robert Kozma}
+%DIF -------
+\editorname{Prof. Huijun Gao} %DIF > 
+% \editorname{Dr. Robert Kozma} %DIF > 
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFaddtex}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdeltex}[1]{{\protect\color{red}\sout{#1}}} %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+\providecommand{\DIFmodbegin}{} %DIF PREAMBLE
+\providecommand{\DIFmodend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF HYPERREF PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{\texorpdfstring{\DIFaddtex{#1}}{#1}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{\texorpdfstring{\DIFdeltex{#1}}{}} %DIF PREAMBLE
+\providecommand{\DIFscaledelfig}{0.5}
+%DIF HIGHLIGHTGRAPHICS PREAMBLE %DIF PREAMBLE
+\RequirePackage{settobox} %DIF PREAMBLE
+\RequirePackage{letltxmacro} %DIF PREAMBLE
+\newsavebox{\DIFdelgraphicsbox} %DIF PREAMBLE
+\newlength{\DIFdelgraphicswidth} %DIF PREAMBLE
+\newlength{\DIFdelgraphicsheight} %DIF PREAMBLE
+% store original definition of \includegraphics %DIF PREAMBLE
+\LetLtxMacro{\DIFOincludegraphics}{\includegraphics} %DIF PREAMBLE
+\providecommand{\DIFaddincludegraphics}[2][]{{\color{blue}\fbox{\DIFOincludegraphics[#1]{#2}}}} %DIF PREAMBLE
+\providecommand{\DIFdelincludegraphics}[2][]{% %DIF PREAMBLE
+\sbox{\DIFdelgraphicsbox}{\DIFOincludegraphics[#1]{#2}}% %DIF PREAMBLE
+\settoboxwidth{\DIFdelgraphicswidth}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\settoboxtotalheight{\DIFdelgraphicsheight}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\scalebox{\DIFscaledelfig}{% %DIF PREAMBLE
+\parbox[b]{\DIFdelgraphicswidth}{\usebox{\DIFdelgraphicsbox}\\[-\baselineskip] \rule{\DIFdelgraphicswidth}{0em}}\llap{\resizebox{\DIFdelgraphicswidth}{\DIFdelgraphicsheight}{% %DIF PREAMBLE
+\setlength{\unitlength}{\DIFdelgraphicswidth}% %DIF PREAMBLE
+\begin{picture}(1,1)% %DIF PREAMBLE
+\thicklines\linethickness{2pt} %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\framebox(1,1){}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\line( 1,1){1}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,1){\line(1,-1){1}}}% %DIF PREAMBLE
+\end{picture}% %DIF PREAMBLE
+}\hspace*{3pt}}} %DIF PREAMBLE
+} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbegin}{\DIFaddbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddend}{\DIFaddend} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbegin}{\DIFdelbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelend}{\DIFdelend} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbegin}{\DIFOaddbegin \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbegin}{\DIFOdelbegin \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbeginFL}{\DIFaddbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddendFL}{\DIFaddendFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbeginFL}{\DIFdelbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelendFL}{\DIFdelendFL} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbeginFL}{\DIFOaddbeginFL \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbeginFL}{\DIFOdelbeginFL \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+%DIF AMSMATHULEM PREAMBLE %DIF PREAMBLE
+\makeatletter %DIF PREAMBLE
+\let\sout@orig\sout %DIF PREAMBLE
+\renewcommand{\sout}[1]{\ifmmode\text{\sout@orig{\ensuremath{#1}}}\else\sout@orig{#1}\fi} %DIF PREAMBLE
+\makeatother %DIF PREAMBLE
+%DIF COLORLISTINGS PREAMBLE %DIF PREAMBLE
+\RequirePackage{listings} %DIF PREAMBLE
+\RequirePackage{color} %DIF PREAMBLE
+\lstdefinelanguage{DIFcode}{ %DIF PREAMBLE
+%DIF DIFCODE_UNDERLINE %DIF PREAMBLE
+  moredelim=[il][\color{red}\sout]{\%DIF\ <\ }, %DIF PREAMBLE
+  moredelim=[il][\color{blue}\uwave]{\%DIF\ >\ } %DIF PREAMBLE
+} %DIF PREAMBLE
+\lstdefinestyle{DIFverbatimstyle}{ %DIF PREAMBLE
+	language=DIFcode, %DIF PREAMBLE
+	basicstyle=\ttfamily, %DIF PREAMBLE
+	columns=fullflexible, %DIF PREAMBLE
+	keepspaces=true %DIF PREAMBLE
+} %DIF PREAMBLE
+\lstnewenvironment{DIFverbatim}[1][]{\lstset{style=DIFverbatimstyle}}{} %DIF PREAMBLE
+\lstnewenvironment{DIFverbatim*}[1][]{\lstset{style=DIFverbatimstyle,showspaces=true}}{} %DIF PREAMBLE
+\lstset{extendedchars=\true,inputencoding=utf8}
+
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
 
 \begin{document}
 \maketitle
@@ -147,7 +247,7 @@
 \begin{revresponse}[]
   We appreciate the Editors' candid assessment of our previous submission. 
   We took this overall concern seriously and undertook a comprehensive revision of the manuscript, as summarized in the \textbf{Overview of Major Changes} below.
-  We believe that these revisions have improved the technical rigor, significance, and presentation of the manuscript.
+  We believe that these revisions have \DIFdelbegin \DIFdel{substantially strengthened }\DIFdelend \DIFaddbegin \DIFadd{improved }\DIFaddend the technical rigor, significance, and presentation of the manuscript.
 
   \vspace{1.2em}
 
@@ -158,16 +258,30 @@
 
     \item \textbf{Title and contribution clarification:} 
       The main contributions of the paper have been clarified.
-      % For example, the paper now emphasizes the capability to handle multiple convex input constraints instead of weight and input constraints, which is the main novelty of the proposed method.
-      For example, the paper now emphasizes the capability to handle multiple convex input constraints, rather than the simultaneous handling of weight and input constraints, as the main novelty of the proposed method.
-      Moreover, target system is generalized to unknown MIMO systems from unknown Euler-Lagrange systems.
+      %DIF >  For example, the paper now emphasizes the capability to handle multiple convex input constraints instead of weight and input constraints, which is the main novelty of the proposed method.
+      For example, the paper now emphasizes the capability to handle multiple convex input constraints\DIFdelbegin \DIFdel{instead }\DIFdelend \DIFaddbegin \DIFadd{, rather than the simultaneous handling }\DIFaddend of weight and input constraints, \DIFdelbegin \DIFdel{which is }\DIFdelend \DIFaddbegin \DIFadd{as }\DIFaddend the main novelty of the proposed method.
+      Moreover, target system is generalized \DIFdelbegin \DIFdel{from unknown Euler-Lagrange systems }\DIFdelend to unknown MIMO systems \DIFaddbegin \DIFadd{from unknown Euler-Lagrange systems}\DIFaddend .
       According to these changes, the title of the manuscript has been revised to clearly reflect the content and scope of the paper.
 
     \item \textbf{Literature review and comparison:} 
       We have added a more detailed literature review to enhance the presentation of the challenges and gaps addressed by the proposed method.
       In addition, we have discussed the selection of comparative methods in the validation section.
+%DIF <  Particularly, literature has been categorized in Table I in the revised manuscript, to clearly show the advantages and limitations of the existing methods and the novelty of the proposed method, as shown below:
+      %DIF <  \begin{center}
+      %DIF <    \centering
+      %DIF <    \includegraphics[width=0.99\linewidth]{figs/e_1.png}
+      %DIF <  \end{center}
 
-    \item \textbf{Rigorous stability analysis:} 
+    %DIF <  Moreover, to demonstrate the effectiveness of the proposed method, we discussed the selection of comparative methods in Lines 670-681 of the revised manuscript as shown below:
+      %DIF <  \begin{center}
+      %DIF <    \centering
+      %DIF <    \includegraphics[width=0.65\linewidth]{figs/e_2.png}
+      %DIF <  \end{center}
+      %DIF <  According to the discussion, we have selected the NAC without input constraint handling and the auxiliary system-based NAC as comparative methods, which is representative structural methods in the NAC literature.
+\DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD <     %%%
+\DIFdelend \item \textbf{Rigorous stability analysis:} 
       We have improved and clarified the stability analysis, providing conditions for the closed-loop stability of the proposed method.
       In specific, according to the re-constructed stability analysis, the tracking error and the adaptive variables, including the DNN weights and Lagrange multipliers, are shown to be bounded under the proposed adaptation laws.
 
@@ -203,13 +317,13 @@
 \begin{revresponse}
   We concur with the reviewer that the main contribution of the paper was not clearly articulated in the previous submission. 
   In the previous version, the major contribution was stated as handling both weight and convex input constraints simultaneously in a unified constrained optimization framework.
-  However, we recognized that, over the previously stated contribution, the significance of the proposed method is to incorporate multiple convex input constraints into the NAC framework, which typically considers only the element-wise input constraints, as compared in Fig.~1 of the revised manuscript, as shown below:
+  However, we \DIFdelbegin \DIFdel{acknowledge }\DIFdelend \DIFaddbegin \DIFadd{recognized }\DIFaddend that, over the previously stated contribution, the significance of the proposed method is to incorporate multiple convex input constraints into the NAC framework, which typically considers only the element-wise input constraints, as compared in Fig.~1 of the revised manuscript, as shown below:
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r1c1_1.png}
   \end{center}
 
-  Moreover, to clarify the novelty of the proposed method, we have categorized the existing input-constraint handling approaches into two methods: Structural Methods and Optimization-Based Methods in introduction section of the revised manuscript, as shown in Table~I.
+  Moreover, to clarify the novelty of the proposed method, we have categorized the existing input-constraint handling approaches into two methods: Structural Methods and Optimization-Based Methods in \DIFdelbegin \DIFdel{Introduction section }\DIFdelend \DIFaddbegin \DIFadd{introduction section of the revised manuscript}\DIFaddend , as shown in Table~I.
   \begin{center}
     \centering
     \includegraphics[width=0.99\linewidth]{figs/r1c1_2.png}
@@ -229,7 +343,7 @@
       Continuous adaptation without requiring numerical solver, resulting in typically low computational burden.
 
   \end{itemize}
-  
+
   \bigskip
 
   Particularly, since our main focus is on the input saturation problem, barrier lyapunov function (BLF)-based methods are not considered in the comparison.
@@ -239,7 +353,7 @@
 
   \bigskip
 
-  The justification of the novelty over our prior works \cite{Ryu:2025aa}, \cite{Ryu:2025ab} is also clarified in lines 212--222 of the revised manuscript, as follows:
+  The justification of the novelty over our prior works \cite{Ryu:2025aa}, \cite{Ryu:2025ab} is also clarified in lines \DIFdelbegin \DIFdel{200-210 }\DIFdelend \DIFaddbegin \DIFadd{212--222 }\DIFaddend of the revised manuscript, as follows:
   \begin{itemize}
     \item 
       The input constraints considered in the previous work \cite{Ryu:2025aa} were limited to norm constraints, which are a specific type of convex constraint.
@@ -252,7 +366,7 @@
     \item 
       Due to the high mathematical complexity of the DNN, the previous works \cite{Ryu:2025aa}, \cite{Ryu:2025ab} employed single hidden layer NNs, while the revised manuscript employs DNN with multiple hidden layers.
       Moreover, the rigorous stability analysis has been extended to accommodate the DNN structure.
-      
+
   \end{itemize}
 
   \vspace{1.2em}
@@ -267,20 +381,20 @@
 % Lagrange multiplier의 수렴성 혹은 boundedness에 대한 분석이 필요함
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \begin{revcomment}[1][1]{}
-	The adaptation law (16a) ((17a) in the present manuscript) relies on Lagrange multipliers generated from constraints, yet the convergence analysis does not establish whether the multipliers remain bounded or converge to optimal values. Without such guarantees, the claim of "bounded DNN weights" is incomplete and potentially misleading.
+	The adaptation law (16a) \DIFaddbegin \DIFadd{((17a) in the present manuscript) }\DIFaddend relies on Lagrange multipliers generated from constraints, yet the convergence analysis does not establish whether the multipliers remain bounded or converge to optimal values. Without such guarantees, the claim of "bounded DNN weights" is incomplete and potentially misleading.
 \end{revcomment}
 
 \begin{revresponse}
-	We appreciate the reviewer's comment regarding the boundedness of the Lagrange multipliers in the adaptation law (16a) ((17a) in the present manuscript). 
+	We appreciate the reviewer's comment regarding the boundedness of the Lagrange multipliers in the adaptation law (16a) \DIFaddbegin \DIFadd{((17a) in the present manuscript)}\DIFaddend . 
   In the revised manuscript, we have re-conducted the stability analysis and provided a rigorous proof of the boundedness of system in Section~IV of the revised manuscript.
 
-  Specifically, the Lyapunov function of output-layer $V_k$ and remaining layers $V_i,\ \forall i\in\{0,\dots,k-1\},$ are defined using tracking errors and adaptive variables including the Lagrange multipliers, as shown below:
+  Specifically, the Lyapunov function of output-layer $V_k$ and \DIFdelbegin \DIFdel{inner-layer }\DIFdelend \DIFaddbegin \DIFadd{remaining layers }\DIFaddend $V_i,\ \forall i\in\{0,\dots,k-1\},$ are defined using tracking errors and adaptive variables including the Lagrange multipliers, as shown below:
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r1c2_1.png}
     \includegraphics[width=0.55\linewidth]{figs/r1c2_2.png}
   \end{center}
-  where $V_c$ is Lyapunov function regarding the tracking error, and $\sigma_i,\ \forall i\in\{0,\dots,k\},$ are Lagrange multipliers for weight boundedness constraints and $\lambda_j,\ \forall j\in\mathcal{I},$ are Lagrange multipliers for input constraints, with $\mathcal{I}$ being the index set of the input constraints.
+  where $V_c$ is Lyapunov function regarding the tracking error, and \DIFdelbegin \DIFdel{$\sigma_i,\ \forall i\in\{0,\dots,k-1\},$ }\DIFdelend \DIFaddbegin \DIFadd{$\sigma_i,\ \forall i\in\{0,\dots,k\},$ }\DIFaddend are Lagrange multipliers for weight boundedness constraints and $\lambda_j,\ \forall j\in\mathcal{I},$ are Lagrange multipliers for input constraints, with $\mathcal{I}$ being the index set of the input constraints.
 
   \bigskip
 
@@ -300,20 +414,20 @@
 % LICQ 조건 엄밀한 증명
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \begin{revcomment}[2][1]{}
-	Equation (35) ((39) in the present manuscript) and the linear independence claim in the paragraph below require verification. The gradient expressions appear inconsistent with standard chain-rule derivation for DNNs. A rigorous derivation must be provided to ensure correctness.
+	Equation (35) \DIFaddbegin \DIFadd{((39) in the present manuscript) }\DIFaddend and the linear independence claim in the paragraph below require verification. The gradient expressions appear inconsistent with standard chain-rule derivation for DNNs. A rigorous derivation must be provided to ensure correctness.
 \end{revcomment}
 
 \begin{revresponse}
   We appreciate the reviewer's comment regarding the verification of the linear independence claim and the gradient expressions of the input constraint.
-  
-  In the revised manuscript, we analyzed the linear independence of the gradient of the considered input constraints, and provided the detailed proof in Lines 657--666, as shown below:
+
+  In the revised manuscript, we analyzed the linear independence of the gradient of the considered input constraints, and provided the detailed proof in Lines \DIFdelbegin \DIFdel{640-647}\DIFdelend \DIFaddbegin \DIFadd{657--666}\DIFaddend , as shown below:
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r1c3_1.png}
   \end{center}
 
   We hope this addresses the reviewer's concern regarding the correctness of the gradient expressions and the linear independence claim.
-  
+
 \end{revresponse}
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -330,16 +444,16 @@
   % 하지만 비교 하는게 전체가 아닌 부가적인 장치 느낌이라 내꺼에 적용한 것임
   % 관련된 선정 내용은 첨부됨
   % 특별히, 다른 MPC와 관련된 기법은 unknown system인 점과 MCU에 적용한 점에서 비교가 어려움
-  
+
   We appreciate the reviewer's comment regarding the comparative study in the previous submission.
 
-  In the revised manuscript, we clearly state the rationale for the selection of the comparative methods in Lines 689--700 of Section~V.A, as follows:
+  In the revised manuscript, we clearly state the rationale for the selection of the comparative methods in Lines \DIFdelbegin \DIFdel{670-681 }\DIFdelend \DIFaddbegin \DIFadd{689--700 }\DIFaddend of Section~V.A, as follows:
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r1c4_1.png}
   \end{center}
   As shown above, since the main focus of the proposed method is input constraint handling in NAC, we chosen baseline methods among the structural methods, not optimization-based methods including MPC and CBF.
-  It should be noted that the optimization-based methods typically require the knowledge of the system dynamics and relatively high computational burden, which makes them less suitable for application to unknown systems and real-time implementation with limited computational resources, such as the MCU used in our experimental setup.
+  It should be noted that \DIFdelbegin \DIFdel{, }\DIFdelend the optimization-based methods typically require the knowledge of the system dynamics and relatively high computational burden, which makes them less suitable for application to unknown systems \DIFdelbegin \DIFdel{or }\DIFdelend \DIFaddbegin \DIFadd{and }\DIFaddend real-time implementation with limited computational resources, such as the MCU used in our experimental setup.
 
   Specifically, the auxiliary system from \cite{Rezaei:2025aa,Liu:2025aa,Yu:2022aa} is selected rather than smooth approximation methods, since the auxiliary system is reported to be better in terms of tracking performance \cite{Min:2021aa}.
   To show the importance of input constraint handling, NAC without input constraint handling is also included in the comparison from \cite{Patil:2022aa}.
@@ -363,7 +477,7 @@
 \begin{revresponse}
 	We thank the reviewer for pointing out the notation inconsistencies and grammatical errors. 
   We have carefully revised the manuscript to correct these issues, ensuring that the notation is consistent throughout and that the language is clear and precise.
-  
+
   For example, the Lagrange multiplier notation has been distinguished between weight boundedness constraints and input constraints, as $\sigma_i$ and $\lambda_j$, respectively, to avoid confusion.
   In addition, for consistency, the update rate of the Lagrange multipliers and constraints have been defined in the same manner for both types of constraints, but with different superscripts to indicate their respective roles, as $\beta_i^\theta, c_i^\theta$ for weight boundedness constraints and $\beta_j^u, c_j^u$ for input constraints, respectively.
 
@@ -397,18 +511,20 @@
 
 \begin{revresponse}
 	We agree with the reviewer that the introduction in the previous submission was not sufficiently detailed to clearly convey the challenges and gaps addressed by the proposed work. 
-  As we mentioned in \textbf{Overview of Major Changes} in the response to editors, the title of the manuscript was revised to clearly reflect the main contribution of the proposed method, which is the capability to handle multiple convex input constraints in the NAC framework.
+  As we mentioned in \textbf{Overview of Major Changes} in the response to editors, \DIFdelbegin \DIFdel{we have revised }\DIFdelend the title of the manuscript \DIFaddbegin \DIFadd{was revised }\DIFaddend to clearly reflect the main contribution of the proposed method, which is the capability to handle multiple convex input constraints in the NAC framework.
 
   \bigskip
 
   Considering this change, the literature review in the introduction has been expanded to provide a more comprehensive overview of the existing methods for input constraint handling in NAC and general constrained control methods.
-  In particular, we have surveyed the advantages and limitations of the existing methods and summarized them in Table~I of the revised manuscript, as shown below:
-  % and clearly stated the research gap that the proposed method addresses, 
+  In particular, we have surveyed the advantages and limitations of the existing methods \DIFdelbegin \DIFdel{, and clearly stated the research gap that the proposed method addresses}\DIFdelend \DIFaddbegin \DIFadd{and summarized them in Table~I of the revised manuscript}\DIFaddend , as shown below:
+  %DIF >  and clearly stated the research gap that the proposed method addresses, 
   \begin{center}
     \centering
-    \includegraphics[width=0.99\linewidth]{figs/r1c1_2.png}
-  \end{center}
-  As shown above, the existing methods have limitations in terms of the types of input constraints they can handle, the computational burden, and the stability guarantees.
+    \DIFdelbegin %DIFDELCMD < \includegraphics[width=0.99\linewidth]{figs/r2c1_1.png}
+%DIFDELCMD <   %%%
+\DIFdelend \DIFaddbegin \includegraphics[width=0.99\linewidth]{figs/r1c1_2.png}
+  \DIFaddend \end{center}
+  As \DIFdelbegin \DIFdel{summarized in Table~I of the revised manuscript}\DIFdelend \DIFaddbegin \DIFadd{shown above}\DIFaddend , the existing methods have limitations in terms of the types of input constraints they can handle, the computational burden, and the stability guarantees.
   We have clearly stated that the proposed method addresses these limitations by providing a unified framework that can handle multiple convex input constraints with rigorous stability guarantees and low computational burden.
 
 \end{revresponse}
@@ -424,15 +540,15 @@
 
 \begin{revresponse}
 	We appreciate the reviewer's comment regarding absence of discussion on the advantages and disadvantages of the proposed method in the previous submission.
-  In Section~V.C (a subsection of validation section) of the revised manuscript, we discussed about the advantages and limitations of the proposed method, as shown below:
+  In \DIFaddbegin \DIFadd{Section~V.C (}\DIFaddend a subsection of validation section\DIFaddbegin \DIFadd{) }\DIFaddend of the revised manuscript, we discussed about the advantages and limitations of the proposed method, as shown below:
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r2c2_1.png}
   \end{center}
 
-  We are aware of that even though the proposed method had demonstrated its capability to handle multiple convex input constraints through the real-time implementation, it is only able to handle the constraints in a soft manner, meaning that the constraints may be violated during the adaptation process.
+  We are aware of that even \DIFaddbegin \DIFadd{though the }\DIFaddend proposed method had demonstrated its capability to handle multiple convex input constraints through the real-time implementation, it is only able to handle the constraints in a soft manner, meaning that the constraints may be violated during the adaptation process.
   Therefore, we mentioned that extending our approach to tackle hard constraints to ensure safety, is very important.
-  Currently, many methods to incorporate hard constraints are being reviewed, and we are planning to employ them into the proposed method in the future, as stated in Lines 874--881 of the conclusion section.
+  Currently, many methods to incorporate hard constraints are being reviewed, and we are planning to employ them into the proposed method in the future, as stated in Lines \DIFdelbegin \DIFdel{856-863 }\DIFdelend \DIFaddbegin \DIFadd{874--881 }\DIFaddend of the conclusion section.
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r2c2_2.png}
@@ -450,30 +566,38 @@
 \end{revcomment}
 
 \begin{revresponse}
-  We understand the reviewer's comment as a request for a more detailed clarification of the initialization conditions that facilitate bounded and stable adaptation of the DNN weights.
+  We \DIFdelbegin \DIFdel{agree with that the requirements for the DNN weights to remain bounded were not clearly stated in the previous version.
+  To demonstrate the importance of weight boundedness guarantees in the presence of input constraints, we have provided corresponding analysiswith the case of NAC which does not consider input constraints, in the validations of the revised manuscript}\DIFdelend \DIFaddbegin \DIFadd{understand the reviewer's comment as a request for a more detailed clarification of the initialization conditions that facilitate bounded and stable adaptation of the DNN weights}\DIFaddend .
 
-  As will be discussed in responses to Comments~5 and~8, the exact admissible initial conditions for the control system cannot be explicitly stated because the invariant sets employed in the stability analysis depend on unknown constants.
+  \DIFdelbegin %DIFDELCMD < \bigskip
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{As will be discussed in responses to Comments~5 and~8, the exact admissible initial conditions for the control system cannot be explicitly stated because the invariant sets employed in the stability analysis depend on unknown constants.
   Nevertheless, the uniform ultimate boundedness of the tracking error and the adaptive variables is established under the initial-condition requirements stated in the stability analysis.
+}\DIFaddend 
 
-  Therefore, in the revised manuscript, we added Remark~2 in the end of Section~IV to provide a guidance on the initialization of the control system, as shown below:
-  \begin{center}
+  \DIFdelbegin \DIFdel{Similarly to typical unconstrained control methods, }\DIFdelend \DIFaddbegin \DIFadd{Therefore, in }\DIFaddend the \DIFdelbegin \DIFdel{DNN weights (which can be considered as adaptive variables or integral errors) grows unboundedly when the input is saturated}\DIFdelend \DIFaddbegin \DIFadd{revised manuscript, we added Remark~2 in the end of Section~IV to provide a guidance on the initialization of the control system, as shown below:
+  }\begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r1c2_3.png}
   \end{center}
-  Specifically, we recommend initializing the system state close to the initial desired state to reduce the initial tracking error, assigning small random values to the DNN weights, and setting the Lagrange multipliers to zero by ensuring that there are no initial constraint violations.
-  These settings help promote stable online adaptation and reduce the possibility of abrupt control actions caused by the initially untrained DNN, as shown below:
+  \DIFadd{Specifically, we recommend initializing the system state close to the initial desired state to reduce the initial tracking error, assigning small random values to the DNN weights, and setting the Lagrange multipliers to zero by ensuring that there are no initial constraint violations.
+  These settings help promote stable online adaptation and reduce the possibility of abrupt control actions caused by the initially untrained DNN}\DIFaddend , as shown \DIFdelbegin \DIFdel{in Fig.~7 of the revised manuscript, which is presented }\DIFdelend \DIFaddbegin \DIFadd{below:
+}
 
   \bigskip
 
-  Moreover, Remark~3 provides additional guidance for mitigating large initial tracking errors caused by improper system-state initialization and the limited initial performance of the randomly initialized DNN, as shown below:
+  \DIFadd{Moreover, Remark~3 provides additional guidance for mitigating large initial tracking errors caused by improper system-state initialization and the limited initial performance of the randomly initialized DNN, as shown }\DIFaddend below:
   \begin{center}
     \centering
-    \includegraphics[width=0.65\linewidth]{figs/r2c8_1.png}
-  \end{center}
+    \DIFdelbegin %DIFDELCMD < \includegraphics[width=0.99\linewidth]{figs/r2c3_1.png}
+%DIFDELCMD <   %%%
+\DIFdelend \DIFaddbegin \includegraphics[width=0.65\linewidth]{figs/r2c8_1.png}
+  \DIFaddend \end{center}
 
-  \bigskip
-  
-  Together, Remarks~2 and~3 clarify the practical initialization and operating conditions that help satisfy the requirements of the stability analysis and facilitate bounded adaptation of the DNN weights.
+  \DIFdelbegin \DIFdel{In Fig.~7(f), }\DIFdelend \DIFaddbegin \bigskip
+
+  \DIFadd{Together, Remarks~2 and~3 clarify the practical initialization and operating conditions that help satisfy the requirements of }\DIFaddend the \DIFdelbegin \DIFdel{DNN weights of (C$_4$) which does not consider input constraints, grow unboundedly when the input is saturated, while those of other controllers which consider input constraints remain bounded.
+  This demonstrates the importance of weight boundedness guarantees in the presence of input constraints}\DIFdelend \DIFaddbegin \DIFadd{stability analysis and facilitate bounded adaptation of the DNN weights}\DIFaddend .
 
 \end{revresponse}
 
@@ -489,26 +613,35 @@
 \begin{revresponse}
 	We thank the reviewer's comment.
   We are not entirely certain whether the reviewer intended to confirm that the actual control law or the function to be approximated by the DNN is free from singularity, or to request an additional analysis of a particular potential singularity.
-  
+
   \bigskip
 
   We have interpreted the comment as a request to clarify whether singularity may occur in the control signal or in the function to be approximated by the DNN.
   Under this interpretation, we clarify that, since the DNN weights are bounded according to the stability analysis, the control signal is guaranteed to be bounded and free from singularity.
+\DIFdelbegin \DIFdel{Furthermore, the approximated function did not involve any matrix inversion }\DIFdelend \DIFaddbegin 
 
   \bigskip
 
-  In addition, the function approximated in the previous submission contained no terms that could become singular and was therefore free of singularities.
+  \DIFadd{In addition, the function approximated }\DIFaddend in the previous submission \DIFaddbegin \DIFadd{contained no terms that could become singular and was therefore free of singularities}\DIFaddend .
   In the revised manuscript, the function actually contains a matrix inversion of the control effectiveness matrix $\boldsymbol{B}$, as shown below:
   \begin{center}
     \centering
-    \includegraphics[width=0.55\linewidth]{figs/r2c4_1.png}
-  \end{center}
+    \DIFdelbegin %DIFDELCMD < \includegraphics[width=0.65\linewidth]{figs/r2c4_1.png}
+%DIFDELCMD <   %%%
+\DIFdelend \DIFaddbegin \includegraphics[width=0.55\linewidth]{figs/r2c4_1.png}
+  \DIFaddend \end{center}
 
-  However, the user-defined matrix $\boldsymbol{P}$ is assumed to be bounded and positive definite by its definition, and, the control effectiveness matrix $\boldsymbol{B}$ is guaranteed to be invertible by Assumption~2, as shown below:
+  \DIFdelbegin %DIFDELCMD < \bigskip
+%DIFDELCMD < 
+
+%DIFDELCMD <   %%%
+\DIFdelend However, the user-defined matrix $\boldsymbol{P}$ is assumed to be \DIFdelbegin \DIFdel{symmetric positive definite }\DIFdelend \DIFaddbegin \DIFadd{bounded and positive definite by its definition}\DIFaddend , and, the control effectiveness matrix $\boldsymbol{B}$ is guaranteed to be invertible by Assumption~2, as shown below:
   \begin{center}
     \centering
-    \includegraphics[width=0.65\linewidth]{figs/r4c1_1.png}
-  \end{center}
+    \DIFdelbegin %DIFDELCMD < \includegraphics[width=0.65\linewidth]{figs/r2c4_2.png}
+%DIFDELCMD <   %%%
+\DIFdelend \DIFaddbegin \includegraphics[width=0.65\linewidth]{figs/r4c1_1.png}
+  \DIFaddend \end{center}
   Therefore the function is well-defined and free from singularity.
 
   \bigskip
@@ -536,7 +669,7 @@
   The derived sets provide an analytical characterization of the ultimate bounds. 
   However, their exact sizes cannot generally be evaluated numerically a priori because they depend on unknown quantities, including the bounds on the DNN approximation error and arbitrary constants from using Young's inequality in the analysis.
   We have explicitly clarified this limitation in the revised manuscript. 
-  Furthermore, we have added Remarks~2--4 in the end of Section~IV to provide practical guidance on initialization, desired trajectory design, and parameter selection, which increases the likelihood that the initial condition requirements of the stability analysis are satisfied.
+  Furthermore, we have added Remarks~2--4 in the end of Section~\DIFaddbegin \DIFadd{I}\DIFaddend V to provide practical guidance on initialization, desired trajectory design, and parameter selection, which increases the likelihood that the initial condition requirements of the stability analysis are satisfied.
 
 \end{revresponse}
 
@@ -557,22 +690,22 @@
 
   \bigskip
 
-  However, depending on the adaptation-law parameters $\alpha$, $\beta_i$, and $\beta_j$, the control signal may exhibit high-frequency oscillations near the constraint boundaries, as discussed in Remark~4 of the revised manuscript.
+  However, \DIFdelbegin \DIFdel{the control signal potentially exhibits }\DIFdelend \DIFaddbegin \DIFadd{depending on the adaptation-law parameters $\alpha$, $\beta_i$, and $\beta_j$, the control signal may exhibit }\DIFaddend high-frequency oscillations \DIFdelbegin \DIFdel{at the extremes of the bounds}\DIFdelend \DIFaddbegin \DIFadd{near the constraint boundaries}\DIFaddend , as discussed in Remark~4 of the revised manuscript\DIFdelbegin \DIFdel{, depending on the parameters of the adaptation laws, $\alpha$ and $\beta_i,\beta_j$}\DIFdelend .
   This is because the adaptation gain $\alpha$ determines the entire adaptation speed of the DNN weights, while the update rates of the Lagrange multipliers $\beta_i,\beta_j$ are directly related to the constraints handling, and therefore the control signal.
-  We provided a parametric study on the update rate of power source limit constraint to investigate the effect of the parameter on the control signal.
+  We provided a parametric study on the update rate of \DIFdelbegin \DIFdel{input norm }\DIFdelend \DIFaddbegin \DIFadd{power source limit }\DIFaddend constraint to investigate the effect of the parameter on the control signal.
   In the study, we observed that a higher update rate of the Lagrange multipliers leads to more aggressive adaptation of the DNN weights to satisfy the constraints, which can result in high-frequency oscillations in the control signal at the extremes of the bounds, as shown in Figs.~9(b) and (c) of the revised manuscript, which is presented below:
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r2c6_1.png}
   \end{center}
-  where (C$_1$) had the higher update rate of the Lagrange multiplier for the power source limit constraint, than (C$_2$), and therefore (C$_1$) exhibited more high-frequency oscillations in the control signal at the extremes of the bounds than (C$_2$).
-  Moreover, the Lagrange multipliers of (C$_1$) are repeatedly activated when the constraints are violated and driven back to zero when the constraints are satisfied, resulting in more frequent activation and deactivation than those of (C$_2$). 
-  This behavior is consistent with the higher-frequency oscillations observed in the control signal.
+  where (C$_1$) had the higher update rate of the Lagrange multiplier for the \DIFdelbegin \DIFdel{input norm }\DIFdelend \DIFaddbegin \DIFadd{power source limit }\DIFaddend constraint, than (C$_2$), and therefore (C$_1$) exhibited more high-frequency oscillations in the control signal at the extremes of the bounds than (C$_2$).
+  Moreover, the Lagrange multipliers of (C$_1$) are \DIFdelbegin \DIFdel{observed to repeatedly increase and decrease at the extremes of the bounds to satisfy the constraints with higher frequency }\DIFdelend \DIFaddbegin \DIFadd{repeatedly activated when the constraints are violated and driven back to zero when the constraints are satisfied, resulting in more frequent activation and deactivation }\DIFaddend than those of (C$_2$)\DIFdelbegin \DIFdel{, which }\DIFdelend \DIFaddbegin \DIFadd{. 
+  This behavior }\DIFaddend is consistent with the \DIFaddbegin \DIFadd{higher-frequency oscillations observed in the }\DIFaddend control signal.
 
   \bigskip
 
-  In conclusion, the constraints are handled by the adaptation law derived from the constrained optimization problem and are satisfied at equilibrium, or approximately under quasi-static conditions. 
-  The Lyapunov analysis serves a separate purpose of establishing the stability and boundedness of the closed-loop system and adaptive variables, rather than analyzing the constraint satisfaction directly.
+  In \DIFdelbegin \DIFdel{addition, the Lyapunov function is only used to prove the stability }\DIFdelend \DIFaddbegin \DIFadd{conclusion, the constraints are handled by the adaptation law derived from the constrained optimization problem and are satisfied at equilibrium, or approximately under quasi-static conditions. 
+  The Lyapunov analysis serves a separate purpose of establishing the stability and boundedness }\DIFaddend of the closed-loop system \DIFdelbegin \DIFdel{, therefore the analysis of control signal at the extremes of the bounds is not directlyrelated to the Lyapunov function}\DIFdelend \DIFaddbegin \DIFadd{and adaptive variables, rather than analyzing the constraint satisfaction directly}\DIFaddend .
 \end{revresponse}
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -603,7 +736,7 @@
       Higher values of the parameters lead to faster adaptation of the DNN weights and satisfaction of the constraints, but may also result in high-frequency oscillations in the control signal.
 
     \item
-      However, with lower values of the parameters, the adaptation of the DNN weights and satisfaction of the constraints may be slower and fail to meet the desired performance requirements.
+      However, with lower values of the parameters, the adaptation of the DNN weights and satisfaction of the constraints may be slower \DIFaddbegin \DIFadd{and fail to meet the desired performance requirements}\DIFaddend .
 
     \item
       Therefore, the parameters should be selected to balance the trade-off between adaptation speed and control signal smoothness, considering the specific requirements of the application.
@@ -612,7 +745,7 @@
 
   \bigskip
 
-  In addition, regarding the selection of the architecture of the DNNs, we have added a statement  in Line 745--747 in the revised manuscript, as follows:
+  \DIFdelbegin \DIFdel{Additionally, in the revised manuscript, we have added a statement }\DIFdelend \DIFaddbegin \DIFadd{In addition, }\DIFaddend regarding the selection of the architecture of the DNNs\DIFdelbegin \DIFdel{in Line 727-729}\DIFdelend \DIFaddbegin \DIFadd{, we have added a statement  in Line 745--747 in the revised manuscript}\DIFaddend , as follows:
   \begin{quotation}
     "
     Specifically, the architecture of the DNNs are empirically chosen considering the approximation capability and computational efficiency.
@@ -621,9 +754,11 @@
   The resulted architecture of the DNNs are summarized in Table~III of the revised manuscript, as shown below (see, last row of Table~III):
   \begin{center}
     \centering
-    \includegraphics[width=0.65\linewidth]{figs/r1c4_2.png}
-  \end{center}
-  
+    \DIFdelbegin %DIFDELCMD < \includegraphics[width=0.65\linewidth]{figs/r2c7_2.png}
+%DIFDELCMD <   %%%
+\DIFdelend \DIFaddbegin \includegraphics[width=0.65\linewidth]{figs/r1c4_2.png}
+  \DIFaddend \end{center}
+
 \end{revresponse}
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -643,9 +778,10 @@
   \begin{center}
     \includegraphics[width=0.65\linewidth]{figs/r2c8_1.png}
   \end{center}
-  Thus, even if the initial tracking error is large, it is expected to decrease while the system follows the warm-up trajectory. 
-  Likewise, initializing the DNN weights with small values is an intentional part of the controller design to avoid excessive initial control outputs. 
-  These initialization and warm-up procedures are employed because the DNN is not pre-trained; therefore, careful initialization and gradual excitation are important for successful online adaptation of NAC without pre-training.
+  Thus, even if the initial tracking error is large, it is expected to \DIFdelbegin \DIFdel{be reduced during the }\DIFdelend \DIFaddbegin \DIFadd{decrease while the system follows the }\DIFaddend warm-up trajectory\DIFdelbegin \DIFdel{, and the large DNN weights can be avoided by }\DIFdelend \DIFaddbegin \DIFadd{. 
+  Likewise, }\DIFaddend initializing the DNN weights \DIFdelbegin \DIFdel{to small values .
+  This is }\DIFdelend \DIFaddbegin \DIFadd{with small values is an intentional part of the controller design to avoid excessive initial control outputs. 
+  These initialization and warm-up procedures are employed }\DIFaddend because the DNN is not pre-trained\DIFdelbegin \DIFdel{, and thereforecareful initial excitation is very }\DIFdelend \DIFaddbegin \DIFadd{; therefore, careful initialization and gradual excitation are }\DIFaddend important for successful \DIFdelbegin \DIFdel{adaptation}\DIFdelend \DIFaddbegin \DIFadd{online adaptation of NAC without pre-training}\DIFaddend .
 
   \bigskip
 
@@ -670,7 +806,7 @@
   Although the proposed framework could potentially be applied to a suspension system if its dynamics and control objectives satisfy the assumptions adopted in this study, such an application was not considered or evaluated in the present manuscript.
 
   \bigskip
-  
+
   We therefore respectfully wonder whether this comment may refer to a different system or manuscript. 
   We would be grateful for further clarification regarding the specific aspect of our work that the reviewer intended to address.
 \end{revresponse}
@@ -686,12 +822,13 @@
 
 \begin{revresponse}
   We thank the reviewer for this comment. 
-  We understand the "the influence of state variable errors on the system's transient response" as referring to the transient tracking performance and their evolution during online adaptation.
-  This is because the desired trajectory is time-varying and the transient response of the closed-loop system under the proposed method was sufficiently captured by the results of the real-time implementation.
+  We understand the "\DIFaddbegin \DIFadd{the influence of }\DIFaddend state variable errors \DIFaddbegin \DIFadd{on the system's transient response}\DIFaddend " as referring to the \DIFdelbegin \DIFdel{state tracking errors }\DIFdelend \DIFaddbegin \DIFadd{transient tracking performance }\DIFaddend and their evolution during online adaptation.
+  \DIFaddbegin \DIFadd{This is because the desired trajectory is time-varying and the transient response of the closed-loop system under the proposed method was sufficiently captured by the results of the real-time implementation.
+}\DIFaddend 
 
-  \bigskip
+  \DIFaddbegin \bigskip
 
-  Because the proposed controller learns online over repeated executions of the same desired trajectory, its learning-dependent transient behavior was evaluated by comparing Episode~1 and Episode~2. 
+  \DIFaddend Because the proposed controller learns online over repeated executions of the same desired trajectory, its learning-dependent transient behavior was evaluated by comparing Episode~1 and Episode~2. 
   In these episodes, the same desired trajectory was repeated while the adapted DNN weights were retained. 
   This comparison illustrates how online adaptation influences the tracking response under the same reference conditions.
 
@@ -706,15 +843,23 @@
     \includegraphics[width=0.65\linewidth]{figs/r2c10_3.png}
   \end{center}
 
-  A detailed analysis of these results is provided in Section~V.B of the revised manuscript; briefly, the proposed CONAC implementations (C$_1$) and (C$_2$) achieved larger reductions in the RMS tracking errors than (C$_3$). 
-  This difference arises because CONAC directly incorporates all constraints defining the admissible input set into its adaptation process and can therefore utilize the available control authority more effectively. 
-  In contrast, the auxiliary-system design of (C$_3$) handles only element-wise input overflow and consequently exhibits more conservative control behavior, as compared in Fig.~10 of the revised manuscript, which is reproduced below.
-  \begin{center}
+  \DIFdelbegin \DIFdel{In particular}\DIFdelend \DIFaddbegin \DIFadd{A detailed analysis of these results is provided in Section~V.B of the revised manuscript; briefly}\DIFaddend , the proposed CONAC implementations \DIFdelbegin \DIFdel{, }\DIFdelend (C$_1$) and (C$_2$) \DIFdelbegin \DIFdel{, }\DIFdelend achieved larger reductions in the RMS tracking errors than (C$_3$). 
+  \DIFdelbegin \DIFdel{These differences arise }\DIFdelend \DIFaddbegin \DIFadd{This difference arises }\DIFaddend because CONAC directly incorporates \DIFdelbegin \DIFdel{the combined }\DIFdelend \DIFaddbegin \DIFadd{all constraints defining the }\DIFaddend admissible input set into its adaptation process and can therefore utilize the available control authority more effectively. 
+  In contrast, the auxiliary-system design of (C$_3$) handles only element-wise input overflow and consequently exhibits more conservative control behavior\DIFdelbegin \DIFdel{.
+}\DIFdelend \DIFaddbegin \DIFadd{, as compared in Fig.~10 of the revised manuscript, which is reproduced below.
+  }\begin{center}
     \includegraphics[width=0.65\linewidth]{figs/r2c10_4.png}
   \end{center}
+\DIFaddend 
 
-  This comparison demonstrates that the proposed CONAC method can achieve better transient tracking performance than the existing methods, while still satisfying the input constraints.
-\end{revresponse}
+  \DIFdelbegin \DIFdel{We acknowledge that the comparison between Episode~1 and Episode~2 does not provide a complete classical transient-response characterization. 
+  Because the DNN weights evolve continuously and the desired trajectory is time-varying, conventional transient measures for a fixed closed-loop system, such as step-response overshoot and settling time, are not directly applicable.
+  We therefore characterize the learning-dependent transient behavior through the tracking-error trajectories and RMS values over repeated executions.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{This comparison demonstrates that the proposed CONAC method can achieve better transient tracking performance than the existing methods, while still satisfying the input constraints.
+}\DIFaddend \end{revresponse}
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % Concluding Response to Reviewer 2
@@ -742,72 +887,86 @@
 \end{revcomment}
 
 \begin{revresponse}
-	We appreciate the reviewer's comment.
-  We understand the comment as a request to clarify how they are handled in the proposed method from both theoretical and practical perspectives and the definition of the convex input constraints.
+	We appreciate the reviewer's comment\DIFdelbegin \DIFdel{to clarify }\DIFdelend \DIFaddbegin \DIFadd{.
+  We understand the comment as a request to clarify how they are handled in the proposed method from both theoretical and practical perspectives and the definition of }\DIFaddend the \DIFdelbegin \DIFdel{definition of considered }\DIFdelend convex input constraints.
+\DIFdelbegin \DIFdel{In the view of theoretical analysis, we have added a more detailed explanation of the }\DIFdelend \DIFaddbegin 
 
   \bigskip
 
-  From the theoretical perspective, the previous manuscript did not clearly distinguish how the convex input constraints were incorporated into the constrained optimization problem. 
+  \DIFadd{From the theoretical perspective, the previous manuscript did not clearly distinguish how the }\DIFaddend convex input constraints \DIFdelbegin \DIFdel{in }\DIFdelend \DIFaddbegin \DIFadd{were incorporated into the constrained optimization problem. 
   As shown below, both the weight and input constraints were represented using the common notation $c_j$, making their respective roles difficult to identify,
-  \begin{center}
+  }\begin{center}
     \centering
     \includegraphics[width=0.55\linewidth]{figs/r3c1_5.png}
   \end{center}
-  where $\boldsymbol{r}$ corresponds to the tracking error $\boldsymbol{e}$ in the revised manuscript and $\mathcal{I}$ is the index set of the imposed constraints including both weight and input constraints unlike the revised manuscript which only includes the index set of the input constraints.
+  \DIFadd{where $\boldsymbol{r}$ corresponds to the tracking error $\boldsymbol{e}$ in the revised manuscript and $\mathcal{I}$ is the index set of the imposed constraints including both weight and input constraints unlike the revised manuscript which only includes the index set of the input constraints.
+}
 
   \bigskip
 
-  In the revised manuscript, the weight and input constraints are explicitly distinguished as $c_i^\theta$ and $c_j^u$, respectively, as shown below:
-  \begin{center}
+  \DIFadd{In the revised manuscript, the weight and input constraints are explicitly distinguished as $c_i^\theta$ and $c_j^u$, respectively, as shown below:
+  }\begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r3c2_1.png}
   \end{center}
-  where $\mathcal{K}$ is the index set of the DNN layers which corresponds to the weight constraints  and $\mathcal{I}$ is the index sets of the input constraints only.
+  \DIFadd{where $\mathcal{K}$ is the index set of the DNN layers which corresponds to the weight constraints  and $\mathcal{I}$ is the index sets of the input constraints only.
+}
 
-  Furthermore, to describe the multiple convex input constraints more clearly, rather than representing the input saturation using a single generic constraint function, the saturation function is now defined using multiple convex constraint functions with respect to the admissible input set $\Omega_u$ according to Assumption~3 in the revised manuscript, as follows:
+  \DIFadd{Furthermore, to describe the multiple convex input constraints more clearly, rather than representing the input saturation using a single generic constraint function, the saturation function is now defined using multiple convex constraint functions with respect to the admissible input set $\Omega_u$ according to }\DIFaddend Assumption~3 \DIFdelbegin \DIFdel{of }\DIFdelend \DIFaddbegin \DIFadd{in }\DIFaddend the revised manuscript, as follows:
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r3c1_1.png}
   \end{center}
 
-  Then, the Lagrangian function is defined with respect to the constrained optimization problem (14) in the revised manuscript, and the adaptation laws of the DNN weights and Lagrange multipliers are derived from the primal-dual gradient update law, as shown below:
-  \begin{center}
+  \DIFdelbegin \DIFdel{In }\DIFdelend \DIFaddbegin \DIFadd{Then, the Lagrangian function is defined with respect to the constrained optimization problem (14) in the revised manuscript, and the adaptation laws of the DNN weights and Lagrange multipliers are derived from the primal-dual gradient update law, as shown below:
+  }\begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r3c2_4.png}
   \end{center}
 
   \bigskip
 
-  From the practical perspective, we have clarified how the input constraints are handled in the adaptation laws in Lines 387--395 of the revised manuscript, as shown below:
-  \begin{center}
+  \DIFadd{From the practical perspective, we have clarified how the input constraints are handled in the adaptation laws in Lines 387--395 of the revised manuscript, as shown below:
+  }\begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r3c1_6.png}
   \end{center}
-  As shown above, for each inequality constraint, whether a weight or input constraint, the adaptation laws 1) increase the corresponding Lagrange multiplier when the constraint is violated, 2) modify the DNN weight adaptation law (14a) in a direction that reduces the constraint violation, and 3) decrease the multiplier toward zero when the constraint is inactive, while allowing it to remain positive when the constraint is active at the boundary.
+  \DIFadd{As shown above, for each inequality constraint, whether a weight or input constraint, the adaptation laws 1) increase the corresponding Lagrange multiplier when the constraint is violated, 2) modify the DNN weight adaptation law (14a) in a direction that reduces the constraint violation, and 3) decrease the multiplier toward zero when the constraint is inactive, while allowing it to remain positive when the constraint is active at the boundary.
+}
 
   \bigskip
-  
-  We hope this revised notation makes it explicit how each convex input constraint is incorporated into the adaptation laws to be satisfied, and how the saturation function is defined using multiple convex input constraints.
-  
+
+  \DIFadd{We hope this revised notation makes it explicit how each convex input constraint is incorporated into the adaptation laws to be satisfied, and how the saturation function is defined using multiple convex input constraints.
+  }
+
   \bigskip
 
-  Additionally, as a example of the definition of the saturation function, in Section~V of the revised manuscript, the input constraint imposed on the validation is specifically defined as follows:
+  \DIFadd{Additionally, as a example of the definition of the saturation function, in }\DIFaddend Section~V of the revised manuscript, the \DIFdelbegin \DIFdel{convex input constraints which are }\DIFdelend \DIFaddbegin \DIFadd{input constraint }\DIFaddend imposed on the validation \DIFdelbegin \DIFdel{are }\DIFdelend \DIFaddbegin \DIFadd{is }\DIFaddend specifically defined as follows:
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r3c1_2.png}
   \end{center}
-  which can be interpreted as a combination of the upper and lower bounds on the actuator torque, and  the power source limit constraint as follows:
+  which can be interpreted as a combination of the upper and lower bounds on the \DIFdelbegin \DIFdel{control input}\DIFdelend \DIFaddbegin \DIFadd{actuator torque}\DIFaddend , and  the \DIFdelbegin \DIFdel{norm constraint on the control input in (37) of the revised manuscript, as shown below}\DIFdelend \DIFaddbegin \DIFadd{power source limit constraint as follows}\DIFaddend :
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r3c1_4.png}
   \end{center}
-  Furthermore, the saturation function is illustrated in Fig.~5(b) in the revised manuscript, as shown below (see, right figure of Fig.~5):
+  \DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD <   %%%
+\DIFdelend Furthermore, the saturation function is illustrated in Fig.~5(b) \DIFaddbegin \DIFadd{in the revised manuscript}\DIFaddend , as shown below \DIFaddbegin \DIFadd{(see, right figure of Fig.~5)}\DIFaddend :
   \begin{center}
     \centering
-    \includegraphics[width=0.65\linewidth]{figs/r3c1_3.png}
-  \end{center}
+    \DIFdelbegin %DIFDELCMD < \includegraphics[width=0.35\linewidth]{figs/r3c1_3.png}
+%DIFDELCMD <   %%%
+\DIFdelend \DIFaddbegin \includegraphics[width=0.65\linewidth]{figs/r3c1_3.png}
+  \DIFaddend \end{center}
 
-\end{revresponse}
+\DIFdelbegin \DIFdel{We hope this clarifies the definition of the considered convex input constraints and their implementation in the proposed control design.
+}%DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \end{revresponse}
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % Reviewer 3 Comment 2
@@ -825,7 +984,7 @@
 
   \bigskip
 
-  First, the tracking error $\boldsymbol{e}$ minimization problem under the input constraints $c_j^u,\ \forall j\in\mathcal{I},$ and bounded DNN weights $\widehat{\boldsymbol{\theta}}_i,\ \forall i\in\mathcal{K},$ is formulated as a constrained optimization problem, as shown below:
+  First, the tracking error $\boldsymbol{e}$ minimization problem under the input constraints \DIFdelbegin \DIFdel{$c_j^u$ }\DIFdelend \DIFaddbegin \DIFadd{$c_j^u,\ \forall j\in\mathcal{I},$ }\DIFaddend and bounded DNN weights \DIFdelbegin \DIFdel{$\widehat{\boldsymbol{\theta}}_i$ }\DIFdelend \DIFaddbegin \DIFadd{$\widehat{\boldsymbol{\theta}}_i,\ \forall i\in\mathcal{K},$ }\DIFaddend is formulated as a constrained optimization problem, as shown below:
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r3c2_1.png}
@@ -835,8 +994,11 @@
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r3c2_2.png}
   \end{center}
-  where $\sigma_i,\ \forall i\in\mathcal{K},$ and $\lambda_j,\ \forall j\in\mathcal{I},$ are Lagrange multipliers for the weight boundedness constraints and input constraints, respectively.
-  To solve the constrained optimization problem, the primal-dual problem is formulated, as follows:
+  where \DIFdelbegin \DIFdel{$\sigma_i$ and $\lambda_j$ }\DIFdelend \DIFaddbegin \DIFadd{$\sigma_i,\ \forall i\in\mathcal{K},$ and $\lambda_j,\ \forall j\in\mathcal{I},$ }\DIFaddend are Lagrange multipliers for the weight boundedness constraints and input constraints, respectively.
+  \DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD <   %%%
+\DIFdelend To solve the constrained optimization problem, the primal-dual problem is formulated\DIFdelbegin \DIFdel{using the Lagrangian function}\DIFdelend , as follows:
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r3c2_3.png}
@@ -848,9 +1010,10 @@
     \includegraphics[width=0.65\linewidth]{figs/r3c2_4.png}
   \end{center}
 
-  This adaptation law, then, is incorporated into the control design to ensure that the DNN weights are updated in a manner that minimizes the tracking error while satisfying the input constraints and maintaining boundedness of the weights.
+  \DIFaddbegin \DIFadd{This adaptation law, then, is incorporated into the control design to ensure that the DNN weights are updated in a manner that minimizes the tracking error while satisfying the input constraints and maintaining boundedness of the weights.
+}
 
-  \bigskip
+  \DIFaddend \bigskip
 
   We hope that this additional explanation clarifies the derivation and understanding of the weight adaptation law in the proposed control design.
 
@@ -869,7 +1032,7 @@
 \begin{revresponse}
 	We appreciate the reviewer's comment to improve the organization and logic of the manuscript.
   In the revised manuscript, we have reorganized the assumptions, preliminaries, and lemmas.
-  The assumptions in the revised manuscript reflect the necessary conditions for the system, and located in the problem formulation section (Section~II), while the preliminaries regarding control design and DNN features are provided in the first section of the control design section (Section~III.A).
+  The assumptions in the revised manuscript reflect the necessary conditions for the system, and located in the problem formulation section (Section~II), while the preliminaries regarding \DIFaddbegin \DIFadd{control design and }\DIFaddend DNN features are provided in the first section of the control design section (Section~III.A).
   All required lemmas for the stability analysis are presented in the stability analysis section (Section~IV) with the corresponding proofs.
 
   We believe that this reorganization improves the clarity and logical flow of the manuscript, making it easier for readers to follow the theoretical development and understand the application of assumptions and lemmas in the context of the proposed control design.
@@ -913,12 +1076,13 @@
   We thank the reviewer for pointing out the issues with the symbol definitions. 
   We have carefully reviewed the entire manuscript and corrected inconsistent and ambiguous notation. 
   We have also ensured that all symbols are defined at their first occurrence and used consistently throughout the manuscript.
+\DIFaddbegin 
 
   \bigskip
 
-  For instance, as mentioned in the previous response, we have clarified the notation for the convex input constraints by explicitly distinguishing between weight and input constraints as $c_i^\theta,\ \forall i\in\mathcal{K},$ and $c_j^u,\ \forall j\in\mathcal{I},$ respectively, in the revised manuscript.
+  \DIFadd{For instance, as mentioned in the previous response, we have clarified the notation for the convex input constraints by explicitly distinguishing between weight and input constraints as $c_i^\theta,\ \forall i\in\mathcal{K},$ and $c_j^u,\ \forall j\in\mathcal{I},$ respectively, in the revised manuscript.
   Moreover, Lagrange multipliers for the weight boundedness constraints and input constraints are now denoted as $\sigma_i,\ \forall i\in\mathcal{K},$ and $\lambda_j,\ \forall j\in\mathcal{I},$ respectively, to avoid confusion.
-\end{revresponse}
+}\DIFaddend \end{revresponse}
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % Reviewer 3 Comment 6
@@ -928,7 +1092,7 @@
 % (특정 시간에서 보는거임)
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \begin{revcomment}[1][1]{}
-	The simulation section does not sufficiently highlight the key contributions of the manuscript. Furthermore, the motivations behind some of the simulation results are unclear. For example, what is the purpose of Figure~6 (Figure~9 in the revised manuscript)?
+	The simulation section does not sufficiently highlight the key contributions of the manuscript. Furthermore, the motivations behind some of the simulation results are unclear. For example, what is the purpose of Figure\DIFaddbegin \DIFadd{~}\DIFaddend 6 \DIFaddbegin \DIFadd{(Figure~9 in the revised manuscript)}\DIFaddend ?
 \end{revcomment}
 
 \begin{revresponse}
@@ -937,22 +1101,23 @@
 
   \bigskip
 
-  Particularly, we zoomed in the experiment results on the time interval of 26.6 s to 27.3 s in Fig.~9 (which corresponds to Fig.~6 in the previous submission) to clearly illustrate the behavior of the control signal and the satisfaction of the constraints during a period when the control signal approaches the boundaries of the convex input constraints.
+  Particularly, we zoomed in the experiment results on the time interval of 26.6 s to 27.3 s in Fig.~9 (which corresponds to Fig.~6 in the previous submission) to clearly illustrate the behavior of the control signal and the satisfaction of the \DIFdelbegin \DIFdel{input }\DIFdelend constraints during a period when the control signal approaches the boundaries of the convex input constraints.
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r3c6_1.png}
   \end{center}
-  As shown in Fig.9(b), the control signals of the proposed method, (C$_1$) and (C$_2$), fully utilized the control authority while handling the convex input constraints, whereas the control signal of (C$_3$) was more conservative and did not fully utilize the available control authority, since it only handled element-wise input overflow according to the auxiliary-system design, as compared in Fig.10 of the revised manuscript.
-  \begin{center}
+  As shown in Fig.9(b), the control signals of the proposed method, (C$_1$) and (C$_2$), fully utilized the control authority while handling the \DIFaddbegin \DIFadd{convex }\DIFaddend input constraints, whereas the control signal of (C$_3$) was more conservative and did not fully utilize the available control authority, since it only handled element-wise input overflow according to the auxiliary-system design\DIFdelbegin \DIFdel{.
+  }\DIFdelend \DIFaddbegin \DIFadd{, as compared in Fig.10 of the revised manuscript.
+  }\begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r2c10_4.png}
   \end{center}
-  The corresponding tracking errors on the same time interval are shown in Fig.9(a).
+  \DIFaddend The corresponding tracking errors on the same time interval are shown in Fig.9(a).
   With larger control authority utilization, the proposed methods, (C$_1$) and (C$_2$), achieved better tracking performance than (C$_3$) during this period.
-  For the case of (C$_4$) which does not consider input constraints, the control signal failed to satisfy the input constraints with excessively large control outputs and resulted in a large tracking error.
+  For the case of (C$_4$) which does not consider input constraints, the control signal \DIFdelbegin \DIFdel{exceeded }\DIFdelend \DIFaddbegin \DIFadd{failed to satisfy }\DIFaddend the input constraints \DIFaddbegin \DIFadd{with excessively large control outputs }\DIFaddend and resulted in a large tracking error.
 
-  The remaining figure, Fig.~9(c), shows the parametric study on the update rate of Lagrange multiplier for the power source limit (input norm) constraint to investigate the effect of the update rate on the control signal.
-  The study demonstrates the trade-off between constraint-handling speed and control signal smoothness, \ie high update rates lead to faster constraint handling but may result in high-frequency oscillations in the control signal at the boundaries of the constraints, while low update rates lead to slower constraint handling but smoother control signals.
+  The remaining figure, Fig.~9(c), shows the parametric study on the update rate of Lagrange multiplier for the \DIFdelbegin \DIFdel{input norm }\DIFdelend \DIFaddbegin \DIFadd{power source limit (input norm) }\DIFaddend constraint to investigate the effect of the update rate on the control signal.
+  The study demonstrates the trade-off between constraint-handling speed and control signal smoothness, \ie high update rates lead to faster constraint handling but may result in high-frequency oscillations in the control signal at the boundaries of the \DIFdelbegin \DIFdel{convex input }\DIFdelend constraints, while low update rates lead to slower constraint handling but smoother control signals.
 
   \bigskip
 
@@ -965,7 +1130,7 @@
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 \begin{concludingresponse}[]
 	Thank you for your valuable comments on our manuscript. 
-  Specifically, the clear definition and handling procedures of the convex input constraints, the reorganization of the assumptions and lemmas, and the clarification of the contributions have substantially improved the clarity and logical flow of the manuscript.
+  Specifically, the clear definition \DIFaddbegin \DIFadd{and handling procedures }\DIFaddend of the convex input constraints, the reorganization of the assumptions and lemmas, and the clarification of the contributions have substantially improved the clarity and logical flow of the manuscript.
 \end{concludingresponse}
 
 % ══════════════════════════════════
@@ -1007,7 +1172,7 @@
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r4c1_1.png}
   \end{center}
-  In addition, we have explicitly stated that the identity-matrix approximation is based on this property in Lines 419--422 on Section~III.C.
+  In addition, we have explicitly stated that the identity-matrix approximation is based on this property in Lines \DIFdelbegin \DIFdel{392-408 }\DIFdelend \DIFaddbegin \DIFadd{419--422 }\DIFaddend on Section~III.C.
 \end{revresponse}
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1026,13 +1191,14 @@
   \bigskip
 
   However, due to the nature of the DNN approximation, the exact analysis is not straightforward to provide a theoretical selection of the optimal number of nodes in the DNN architecture.
-  Thus, in the validations, the architecture of the DNNs was selected empirically by considering both approximation performance and the computational constraints of the target MCU, as stated in Lines 745--747 of the revised manuscript, as follows:
-  \begin{quotation}
-    "
+  Thus, in the validations, the architecture of the DNNs was selected empirically by considering both approximation performance and the computational constraints of the target MCU\DIFdelbegin \DIFdel{. 
+  }\DIFdelend \DIFaddbegin \DIFadd{, as stated in Lines 745--747 of the revised manuscript, as follows:
+  }\begin{quotation}
+    \DIFadd{"
     Specifically, the architecture of the DNNs are empirically chosen considering the approximation capability and computational efficiency.
     "
-  \end{quotation}
-  During implementation, we evaluated several candidate architectures with different numbers of hidden layers and nodes. 
+  }\end{quotation}
+  \DIFaddend During implementation, we evaluated several candidate architectures with different numbers of hidden layers and nodes. 
   Increasing the network size beyond two hidden layers with four nodes per layer resulted in only a marginal improvement in tracking performance, while increasing the inference time and memory requirements. 
   Conversely, smaller architectures resulted in a noticeable deterioration in approximation/tracking performance. 
   Therefore, the architecture was selected as a practical trade-off that provided adequate performance while satisfying the real-time computational requirements of the MCU.
@@ -1044,7 +1210,22 @@
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r4c2_1.png}
   \end{center}
-\end{revresponse}
+\DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD <   \bigskip 
+%DIFDELCMD < 
+
+%DIFDELCMD <   %%%
+\DIFdel{In addition, in the revised manuscript, we have added a statement regarding the empirical selection of the architecture of the DNNs, in Line 727-729, as follows:
+  }%DIFDELCMD < \begin{quotation}
+%DIFDELCMD <     %%%
+\DIFdel{"
+    Specifically, the architecture of the DNNs are empirically chosen considering the approximation capability and computational efficiency.
+    "
+  }%DIFDELCMD < \end{quotation}
+%DIFDELCMD <   %%%
+\DIFdel{to clarify that the architecture was selected as a practical trade-off rather than a theoretically optimal configuration in the validation experiments.
+}\DIFdelend \end{revresponse}
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % Reviewer 4 Comment 3
@@ -1064,9 +1245,9 @@
 
   \bigskip
 
-  Regarding system uncertainties, since the proposed method is NAC method which requires no prior knowledge of the system dynamics, it is inherently robust to uncertainties.
-  However, we acknowledge that the current validation does not include additional disturbances beyond the uncertainties of the system.
-  Therefore, in Lines 874--881 of the conclusion in the revised manuscript, we have added a statement to clarify that the consideration of disturbances is left for future work, as follows:
+  Regarding system uncertainties, since the proposed method is NAC method which requires no prior knowledge of the system dynamics, it is inherently robust to \DIFdelbegin \DIFdel{parametric }\DIFdelend uncertainties.
+  However, we acknowledge that the current validation does not include additional disturbances \DIFdelbegin \DIFdel{or uncertainties beyond the inherent parametric }\DIFdelend \DIFaddbegin \DIFadd{beyond the }\DIFaddend uncertainties of the system.
+  Therefore, in Lines \DIFdelbegin \DIFdel{856-861 }\DIFdelend \DIFaddbegin \DIFadd{874--881 }\DIFaddend of the conclusion in the revised manuscript, we have added a statement to clarify that the consideration of disturbances \DIFdelbegin \DIFdel{, and uncertainties }\DIFdelend is left for future work, as follows:
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r2c2_2.png}
@@ -1093,8 +1274,9 @@
   The requested low-speed, high-speed, and sudden-speed-change tests pertain specifically to the synchronous-machine drive system considered in that conference paper. 
   The present manuscript concerns a two-link robotic manipulator and does not involve the rated-speed operating scenarios of the synchronous-machine drive. 
   Since the conference paper has already been published and is not part of the current submission, we have not added these additional operating scenarios to the present revision.
-  We kindly ask for the reviewer’s understanding regarding our decision not to incorporate this suggestion.
-  
+  \DIFaddbegin \DIFadd{We kindly ask for the reviewer’s understanding regarding our decision not to incorporate this suggestion.
+  }\DIFaddend 
+
 \end{revresponse}
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -1114,8 +1296,8 @@
   The present manuscript does not employ a reference-current waveform. 
   Its validation is conducted on a two-link robotic manipulator using smooth desired joint trajectories composed of quintic polynomial segments. 
   Therefore, the requested evaluation using alternative reference-current waveforms is specific to the previously published conference paper and has not been included in the present revision.
-  We kindly ask for the reviewer’s understanding regarding our decision not to incorporate this suggestion.
-\end{revresponse}
+  \DIFaddbegin \DIFadd{We kindly ask for the reviewer’s understanding regarding our decision not to incorporate this suggestion.
+}\DIFaddend \end{revresponse}
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % Reviewer 4 Comment 6
@@ -1140,8 +1322,11 @@
   We emphasize, however, that the conference paper was provided solely as related reference material and that the present manuscript does not rely on its Implicit-Function-Theorem-based existence argument. 
   In the present manuscript, the ideal control law is defined directly under the assumed nonsingularity of the control-effectiveness matrix.  
   Therefore, the identified limitation of the previous conference paper does not affect the theoretical results established in the present manuscript.
-  We kindly ask for the reviewer’s understanding regarding our decision not to incorporate this suggestion.
-\end{revresponse}
+  \DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \DIFadd{We kindly ask for the reviewer’s understanding regarding our decision not to incorporate this suggestion.
+}\DIFaddend \end{revresponse}
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % Reviewer 4 Comment 7
@@ -1156,14 +1341,15 @@
   We thank the reviewer for suggesting these recent studies. 
   We have examined them from a constrained-optimization perspective and clarified their differences from the proposed CONAC framework.
 
-  In Lines 113--124 of the introduction section of the revised manuscript, we have added a discussion of the related works, as follows:
-  \begin{center}
+  \DIFaddbegin \DIFadd{In Lines 113--124 of the introduction section of the revised manuscript, we have added a discussion of the related works, as follows:
+  }\begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r4c7_1.png}
   \end{center}
-  The detailed comparison of the proposed method with the suggested related works is provided in the following paragraphs.
+  \DIFadd{The detailed comparison of the proposed method with the suggested related works is provided in the following paragraphs.
+}
 
-  \bigskip
+  \DIFaddend \bigskip
 
   First, Zhang \etal \cite{Zhang:2024ab} formulated adaptive dynamic programming (ADP) problems for unknown nonlinear systems with actuator failures and asymmetric input constraints.
   They designed the infinite-horizon cost function including CBF-based safety constraints, input saturation, and actuator-failure.
@@ -1177,7 +1363,7 @@
 
   In addition, Qin \etal \cite{Qin:2025ab} also proposed similar control design which reshapes the constrained system into an unconstrained system by using a smooth mapping function.
   In terms of the input saturation, symmetric input constraints are considered similarly to \cite{Zhang:2024ab}.
-  Unlike \cite{Zhang:2024ab} and \cite{Qin:2025aa}, the optimal control law is derived from the Hamilton-Jacobi-Bellman (HJB) equation, instead of the HJI equation, while the optimal cost function is approximated by a CNN similarly to \cite{Zhang:2024ab} and \cite{Qin:2025aa}.
+  Unlike \cite{Zhang:2024ab} and \cite{Qin:2025aa}, the optimal control law is derived from the Hamilton-Jacobi-Bellman (HJB) equation, instead of the HJI equation, \DIFdelbegin \DIFdel{and }\DIFdelend \DIFaddbegin \DIFadd{while }\DIFaddend the optimal cost function is approximated by a CNN similarly to \cite{Zhang:2024ab} and \cite{Qin:2025aa}.
 
   \bigskip
 
@@ -1185,11 +1371,11 @@
   The optimal control law is derived from HJI or HJB equation, and the optimal cost function is approximated by a CNN.
   Therefore, the control law can be derived from the CNN directly.
   However, they are all limited to the specific types of input constraints, \ie asymmetric or symmetric box constraints, and cannot generally handle other types of convex input constraints.
-  In contrast, the proposed CONAC can handle a broader class of convex input constraints, including element-wise bounds, norm constraints, and other coupled convex input constraints, by explicitly incorporating them into the constrained optimization problem and deriving the adaptation law from the primal-dual formulation.
+  In contrast, the proposed CONAC \DIFdelbegin \DIFdel{framework }\DIFdelend can handle a broader class of convex input constraints, including element-wise bounds, norm constraints, and other coupled convex input constraints, by explicitly incorporating \DIFdelbegin \DIFdel{the admissible input set }\DIFdelend \DIFaddbegin \DIFadd{them }\DIFaddend into the constrained optimization problem and deriving the adaptation law\DIFdelbegin \DIFdel{s}\DIFdelend  from the primal-dual formulation.
 
   In terms of the objective function, since the proposed method is based on instantaneous tracking-error minimization, it may be theoretically enhanced by considering the infinite-horizon cost function like \cite{Zhang:2024ab, Qin:2025aa, Qin:2025ab}.
-  Moreover, utilizing game theory to handle actuator failures or disturbances, as in \cite{Zhang:2024ab, Qin:2025aa}, may also be a potential extension of the proposed method.
-  Thus, we left regarding statements in Lines 874--881 of conclusion section in the revised manuscript, as follows:
+  Moreover, utilizing game theory to handle actuator failures or \DIFdelbegin \DIFdel{uncertainties}\DIFdelend \DIFaddbegin \DIFadd{disturbances}\DIFaddend , as in \cite{Zhang:2024ab, Qin:2025aa}, may also be a potential extension of the proposed method.
+  Thus, we left regarding statements in Lines \DIFdelbegin \DIFdel{856-863 }\DIFdelend \DIFaddbegin \DIFadd{874--881 }\DIFaddend of conclusion section in the revised manuscript, as follows:
   \begin{center}
     \centering
     \includegraphics[width=0.65\linewidth]{figs/r2c2_2.png}

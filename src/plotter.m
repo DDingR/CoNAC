@@ -227,11 +227,11 @@ for f_idx = 1:1:7
     if f_idx <= 4
         text(ax_list{f_idx}, 0.02, 0.9, "Episode 1", "FontSize", font_size, "FontName", 'Times New Roman','Units','normalized')
         text(ax_list{f_idx}, 0.52, 0.9, "Episode 2", "FontSize", font_size, "FontName", 'Times New Roman','Units','normalized')
-        text(ax_list{f_idx}, 0.845, 0.9, "see, Fig. 10", "FontSize", font_size, "FontName", 'Times New Roman','Units','normalized', 'Color', zoom_color)
+        text(ax_list{f_idx}, 0.845, 0.9, "see, Fig. 9", "FontSize", font_size, "FontName", 'Times New Roman','Units','normalized', 'Color', zoom_color)
     else
         text(ax_list{f_idx}, 0.02, 0.1, "Episode 1", "FontSize", font_size, "FontName", 'Times New Roman','Units','normalized')
         text(ax_list{f_idx}, 0.52, 0.1, "Episode 2", "FontSize", font_size, "FontName", 'Times New Roman','Units','normalized')
-        text(ax_list{f_idx}, 0.845, 0.1, "see, Fig. 10", "FontSize", font_size, "FontName", 'Times New Roman','Units','normalized', 'Color', zoom_color)
+        text(ax_list{f_idx}, 0.845, 0.1, "see, Fig. 9", "FontSize", font_size, "FontName", 'Times New Roman','Units','normalized', 'Color', zoom_color)
     end
 
     len = maxVals(f_idx)-minVals(f_idx); ratio = .3;
