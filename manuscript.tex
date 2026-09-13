@@ -89,7 +89,7 @@
   Constrained Optimization-Based Neuro-Adaptive Control (CONAC) for Unknown Systems Under Multiple Convex Input Constraints
 } %% Article title
 
-% \author{}
+\author{}
 % \author{
 %   Myeongseok Ryu, Donghwa Hong, and Kyunghwan Choi
 % \thanks{
@@ -2169,9 +2169,9 @@ First, the gradient of the upper and lower torque limit constraints $c^u_{\overl
   \end{pmatrix}
   .
 \end{equation}
-Next, the gradient of the power source limit constraint $c^u_{\rbu}$ is derived as follows:
+Next, the gradient of the power source limit constraint $c^u_{\overline{\tau}}$ is derived as follows:
 \begin{equation}
-  \ppfrac{c^u_{\rbu}}{\estwth}
+  \ppfrac{c^u_{\overline{\tau}}}{\estwth}
   =
   \ppfrac{\mv{\tau}}{\estwth}^\top
   \mv{\tau}
@@ -2355,7 +2355,7 @@ In addition, among the structural methods, the auxiliary system-based NAC was in
         }
       }
     \\
-    & $\beta^{u}_{\overline{\tau}_2}=\beta^{u}_{\underline{\tau}_2}=1000$, $\beta^{u}_{\rbu}=100,$ & 
+    & $\beta^{u}_{\overline{\tau}_2}=\beta^{u}_{\underline{\tau}_2}=1000$, $\beta^{u}_{\overline{\tau}}=100,$ & 
     \\
     & 
     $\overline{\theta}_i=15,\beta_i^\theta=1,\forall i\in\{0,1,2\}$,
@@ -2370,7 +2370,7 @@ In addition, among the structural methods, the auxiliary system-based NAC was in
       }
     }& Proposed CONAC (smaller $\beta_j$) &  
     \\
-    & $\beta^{u}_{\overline{\tau}_2}=\beta^{u}_{\underline{\tau}_2}=50$, $\beta^{u}_{\rbu}=10,$ & same as (C$_1$) 
+    & $\beta^{u}_{\overline{\tau}_2}=\beta^{u}_{\underline{\tau}_2}=50$, $\beta^{u}_{\overline{\tau}}=10,$ & same as (C$_1$) 
     \\ 
     & Others: same as (C$_1$) & 
     \\
@@ -2419,7 +2419,7 @@ In addition, among the structural methods, the auxiliary system-based NAC was in
       \protect\colorLine{gray}{solid}
     }
     }& NAC without input constraints \cite{Patil:2022aa} & 
-    \multirow{2}{*}{Input is unconstrained}
+    \multirow{2}{*}{not considered}
     \\
     & $\overline{\theta}=15$ & 
     \\  
@@ -2468,7 +2468,7 @@ In addition, among the structural methods, the auxiliary system-based NAC was in
 % ------------------------------------
 \subsubsection*{Controller 1 \normalfont{(C$_1$)}—\textit{Proposed CONAC}}
 
-To handle all imposed input saturation, the proposed CONAC was implemented with the torque limit constraints $c^u_{\overline\tau_2}$ and $c^u_{\underline\tau_2}$ for the second link, and the power source limit constraint $c^u_{\rbu}$ (defined in \eqref{eq:val:cstr:input}), allowing the controller to fully utilize the authority of the actuator.
+To handle all imposed input saturation, the proposed CONAC was implemented with the torque limit constraints $c^u_{\overline\tau_2}$ and $c^u_{\underline\tau_2}$ for the second link, and the power source limit constraint $c^u_{\overline{\tau}}$ (defined in \eqref{eq:val:cstr:input}), allowing the controller to fully utilize the authority of the actuator.
 As described in \eqref{eq:ctrl:NN:actual}, the input (torque) corresponds to the output of the DNN, and the adaptation law is defined in \eqref{eq:adap}.
 All parameters of (C$_1$) are listed in Table~\ref{table:controller}.
 % Additionally, the weight norm constraints $c^\theta_{i},\ \forall i\in \mathcal{K}$, defined in \eqref{eq:opt:prob:const1}, were also incorporated into CONAC framework with $\overline\theta_0=\overline\theta_1=\overline\theta_2=6$.
@@ -2578,7 +2578,7 @@ The DNN weights were initialized with small random values according to $\estwth(
     }%
     \label{fig:ctrl:result:general:tau:2}}
   \vfill
-  \subfloat[Norm of the commanded control input $\rbu$.]{
+  \subfloat[Norm of the commanded control input $\mv{\tau}$.]{
     \includegraphics[width=.49\linewidth]
     {
       \resultFig/Fig7.eps
